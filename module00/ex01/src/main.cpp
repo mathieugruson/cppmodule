@@ -6,20 +6,24 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 17:26:14 by mgruson           #+#    #+#             */
-/*   Updated: 2023/02/06 18:01:07 by mgruson          ###   ########.fr       */
+/*   Updated: 2023/02/07 12:01:29 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 #include "PhoneBook.hpp"
 
-int main() 
+int main(int argc, char **argv) 
 {
+	(void)argv;
+	if (argc > 1)
+	{
+		std::cout << "The program does not need an input" << std::endl;
+		return (0);
+	}
 	int i = 0;
 	PhoneBook phonebook;
-	std::string firstname, lastname, nickname, phone_number, darkest_secret;
 	std::string prompt;
-
 	while(prompt != "EXIT") 
 	{
 		std::cout << "Enter ADD, SEARCH or EXIT command: ";
@@ -40,13 +44,13 @@ int main()
 			contact.add_nickname(prompt);
 			
 			std::cout << "Enter phone number:";
-			std::cin >> prompt; 
+			std::cin >> prompt;
 			contact.add_phone_number(prompt);
 			
 			std::cout << "Enter darkest secret:";
 			std::cin >> prompt;
 			contact.add_darkest_secret(prompt);
-		
+
 			phonebook.addContact(contact, i);
 			i++;
 		}
