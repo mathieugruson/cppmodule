@@ -6,12 +6,20 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 17:26:14 by mgruson           #+#    #+#             */
-/*   Updated: 2023/02/07 12:01:29 by mgruson          ###   ########.fr       */
+/*   Updated: 2023/02/07 12:43:54 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 #include "PhoneBook.hpp"
+#include <cstdlib>
+#include <csignal>
+
+void signalHandler(int signum)
+{
+    std::cout << "\nInterrupt signal (" << signum << ") received.\n";
+    std::exit(signum);
+}
 
 int main(int argc, char **argv) 
 {
@@ -24,6 +32,7 @@ int main(int argc, char **argv)
 	int i = 0;
 	PhoneBook phonebook;
 	std::string prompt;
+    std::signal(SIGINT, signalHandler);
 	while(prompt != "EXIT") 
 	{
 		std::cout << "Enter ADD, SEARCH or EXIT command: ";
