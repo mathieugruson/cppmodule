@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 17:30:31 by mgruson           #+#    #+#             */
-/*   Updated: 2023/02/07 12:05:52 by mgruson          ###   ########.fr       */
+/*   Updated: 2023/02/07 12:57:27 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ PhoneBook::PhoneBook(void)
 }
 
 void PhoneBook::addContact(Contact &c, int i) {
+	std::cout << i << std::endl;
 	if (i == 0)
 		contact[i] = c;
 	if (i == 1)
@@ -34,7 +35,7 @@ void PhoneBook::addContact(Contact &c, int i) {
 		contact[i] = c;
 	if (i == 7)
 		contact[i] = c;
-	if (i > 8)
+	if (i >= 8)
 		contact[7] = c;
 }
 
@@ -60,18 +61,20 @@ void PhoneBook::displayPhonebook(int contact_num)
 			std::cout << std::right << std::setw(str.size() + 10) << str << std::endl;
 		return ;
 	}
-	for (int i = 0; i < contact_num || (i < 8 && contact_num > 8); i++)
+	if (contact_num > 8)
+		contact_num = 8;
+	for (int i = 0; i < contact_num ; i++)
 	{	
 		std::cout << std::right << std::setw(10) << (i + 1) << "|";
 		if (contact[i].get_firstname().size() > 10)
 			std::cout << std::right << std::setw(10) << contact[i].get_firstname().substr(0, 9) << "." << "|";
 		else
-			std::cout << std::right << std::setw(10) << contact[i].get_firstname().substr(0, 10) << " |";
+			std::cout << std::right << std::setw(10) << contact[i].get_firstname().substr(0, 10) << "|";
 		/* */
 		if (contact[i].get_lastname().size() > 10)
 			std::cout << std::right << std::setw(10) << contact[i].get_lastname().substr(0, 9) << "." << "|";
 		else
-			std::cout << std::right << std::setw(10) << contact[i].get_lastname().substr(0, 10) << " |";
+			std::cout << std::right << std::setw(10) << contact[i].get_lastname().substr(0, 10) << "|";
 		/**/
 		if (contact[i].get_nickname().size() > 10)
 			std::cout << std::right << std::setw(10) << contact[i].get_nickname().substr(0, 9) << "." << std::endl;
