@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 17:26:14 by mgruson           #+#    #+#             */
-/*   Updated: 2023/02/07 17:16:38 by mgruson          ###   ########.fr       */
+/*   Updated: 2023/02/08 15:42:35 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,34 +29,55 @@ int main(int argc, char **argv)
 	while(prompt != "EXIT") 
 	{
 		std::cout << "Enter ADD, SEARCH or EXIT command: ";
-		if (!(std::cin >> prompt))
-			break ;
+		if (!(std::getline(std::cin, prompt)))
+			return (0);
 		if (prompt == "ADD") 
 		{
 			Contact contact;
-			std::cout << "Enter first name:";
-			if (!(std::cin >> prompt))
-				break ;
-			contact.add_firstname(prompt);
 			
-			std::cout << "Enter last name:";
-			if (!(std::cin >> prompt))
-				break ;
+			prompt.erase();
+			while (prompt.size() < 1)
+			{
+				std::cout << "Enter first name:";
+				if (!(std::getline(std::cin, prompt)))
+					return (0);
+			}
+			contact.add_firstname(prompt);
+
+			prompt.erase();
+			while (prompt.size() < 1)
+			{
+				std::cout << "Enter last name:";
+				if (!(std::getline(std::cin, prompt)))
+					return (0);
+			}
 			contact.add_lastname(prompt);
 			
-			std::cout << "Enter nickname:";
-			if (!(std::cin >> prompt))
-				break ;
+			prompt.erase();
+			while (prompt.size() < 1)
+			{
+				std::cout << "Enter nickname:";
+				if (!(std::getline(std::cin, prompt)))
+					return (0);
+			}
 			contact.add_nickname(prompt);
-			
-			std::cout << "Enter phone number:";
-			if (!(std::cin >> prompt))
-				break ;
+
+			prompt.erase();
+			while (prompt.size() < 1)
+			{
+				std::cout << "Enter phone number:";
+				if (!(std::getline(std::cin, prompt)))
+					return (0);
+			}
 			contact.add_phone_number(prompt);
 			
-			std::cout << "Enter darkest secret:";
-			if (!(std::cin >> prompt))
-				break ;
+			prompt.erase();
+			while (prompt.size() < 1)
+			{
+				std::cout << "Enter darkest secret:";
+				if (!(std::getline(std::cin, prompt)))
+					return (0);
+			}
 			contact.add_darkest_secret(prompt);
 
 			phonebook.addContact(contact, i);
@@ -65,11 +86,12 @@ int main(int argc, char **argv)
 		else if (prompt == "SEARCH")
 		{
 			phonebook.displayPhonebook(i);
-			while (std::atoi(prompt.c_str()) < 1 || std::atoi(prompt.c_str()) > 8) 
+			prompt.erase();
+			while (std::atoi(prompt.c_str()) < 1 || std::atoi(prompt.c_str()) > 8)
 			{
 				std::cout << "Enter an index between 1 and 8:" << std::endl;
-				if (!(std::cin >> prompt))
-					break ; 
+				if (!(std::getline(std::cin, prompt)))
+					return (0); 
 			}
 			phonebook.displayContact(std::atoi(prompt.c_str()));
 		}
@@ -78,4 +100,5 @@ int main(int argc, char **argv)
 			std::cout << "Not the wright input" << std::endl;
 		}
 	}
+	return (0);
 }
