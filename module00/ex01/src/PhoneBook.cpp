@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 17:30:31 by mgruson           #+#    #+#             */
-/*   Updated: 2023/02/08 15:21:04 by mgruson          ###   ########.fr       */
+/*   Updated: 2023/02/08 18:21:10 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,23 +18,6 @@ PhoneBook::PhoneBook(void)
 }
 
 void PhoneBook::addContact(Contact &c, int i) {
-	if (i == 0)
-		contact[i] = c;
-	if (i == 1)
-		contact[i] = c;
-	if (i == 2)
-		contact[i] = c;
-	if (i == 3)
-		contact[i] = c;
-	if (i == 4)
-		contact[i] = c;
-	if (i == 5)
-		contact[i] = c;
-	if (i == 6)
-		contact[i] = c;
-	if (i == 7)
-		contact[i] = c;
-	if (i >= 8)
 		contact[i % 8] = c;
 }
 
