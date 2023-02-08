@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 17:30:31 by mgruson           #+#    #+#             */
-/*   Updated: 2023/02/07 15:24:05 by mgruson          ###   ########.fr       */
+/*   Updated: 2023/02/08 14:02:50 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ PhoneBook::PhoneBook(void)
 }
 
 void PhoneBook::addContact(Contact &c, int i) {
-	std::cout << i << std::endl;
 	if (i == 0)
 		contact[i] = c;
 	if (i == 1)
