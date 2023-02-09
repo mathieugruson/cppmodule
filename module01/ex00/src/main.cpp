@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 14:16:08 by mgruson           #+#    #+#             */
-/*   Updated: 2023/02/08 18:24:02 by mgruson          ###   ########.fr       */
+/*   Updated: 2023/02/09 12:44:48 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,6 @@ int main(void)
 
 	first_zombie = newZombie("Manson");
 	first_zombie->announce();
-
+	randomChump("Walker");
+	delete first_zombie;
 }

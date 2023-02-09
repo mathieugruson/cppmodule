@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 14:16:03 by mgruson           #+#    #+#             */
-/*   Updated: 2023/02/08 18:26:54 by mgruson          ###   ########.fr       */
+/*   Updated: 2023/02/09 12:45:05 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,6 @@ class Zombie
 };
 
 Zombie* newZombie(std::string name);
+void	randomChump( std::string name);
 
 #endif

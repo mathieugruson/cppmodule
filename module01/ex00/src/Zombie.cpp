@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 14:19:54 by mgruson           #+#    #+#             */
-/*   Updated: 2023/02/08 18:27:09 by mgruson          ###   ########.fr       */
+/*   Updated: 2023/02/09 12:50:21 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,15 @@ void	Zombie::announce( void ) const
 
 Zombie::Zombie( void )
 {
-	std::cout << "Constructor called" << std::endl;
+	std::cout << "Constructor called without overcharge " << this->_name << std::endl;
 }
 
-Zombie::Zombie(std::string name)
+Zombie::Zombie(std::string name) : _name(name)
 {
-	std::cout << "Constructor with surcharge called" << std::endl;
-	_name = name;
+	std::cout << "Constructor with overcharge called " << this->_name << std::endl;
 }
 
 Zombie::~Zombie( void )
 {
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "Destructor called " << this->_name << std::endl;
 }
