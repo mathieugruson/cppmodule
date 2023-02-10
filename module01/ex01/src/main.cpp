@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanB.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/09 14:57:11 by mgruson           #+#    #+#             */
-/*   Updated: 2023/02/10 11:11:08 by mgruson          ###   ########.fr       */
+/*   Created: 2023/02/09 12:57:30 by mgruson           #+#    #+#             */
+/*   Updated: 2023/02/09 13:39:23 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
-#include "Weapon.hpp"
+#include "Zombie.hpp"
 
-class HumanB
+int main()
 {
-private:
-	Weapon *_weapon_name;
-	std::string _human_name;
-public:
-	HumanB(/* args */);
-	HumanB(std::string name);
-	~HumanB();
-	void	setWeapon(Weapon &newWeapon);
-	void	attack();
-};
-
-
+	Zombie *Horde = zombieHorde(10, "Mathieu");
+	for (int i = 0 ; i < 10 ; i++)
+	{
+		std::cout << "Pointer value for zombie[" << i << "]: " << std::hex << &Horde[i] << std::endl;
+		Horde[i].announce();
+	}
+	delete [] Horde;
+}

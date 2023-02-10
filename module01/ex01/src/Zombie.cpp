@@ -1,30 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanB.hpp                                         :+:      :+:    :+:   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/09 14:57:11 by mgruson           #+#    #+#             */
-/*   Updated: 2023/02/10 11:11:08 by mgruson          ###   ########.fr       */
+/*   Created: 2023/02/09 13:02:18 by mgruson           #+#    #+#             */
+/*   Updated: 2023/02/09 13:29:55 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
-#include "Weapon.hpp"
+#include "Zombie.hpp"
 
-class HumanB
+Zombie::Zombie( std::string name ) :_name(name)
 {
-private:
-	Weapon *_weapon_name;
-	std::string _human_name;
-public:
-	HumanB(/* args */);
-	HumanB(std::string name);
-	~HumanB();
-	void	setWeapon(Weapon &newWeapon);
-	void	attack();
-};
+	
+}
 
+Zombie::Zombie( void )
+{
+	
+}
 
+Zombie::~Zombie( void )
+{
+	
+}
+
+void	Zombie::announce( void ) const
+{
+	std::cout << "Zombie : " << this->_name  << std::endl;
+}
+
+void	Zombie::setName( std::string name )
+{
+	this->_name = name;
+	std::cout << "Name set" << std::endl;
+}
