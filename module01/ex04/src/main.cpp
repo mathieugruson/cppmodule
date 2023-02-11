@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 11:13:06 by mgruson           #+#    #+#             */
-/*   Updated: 2023/02/10 12:42:17 by mgruson          ###   ########.fr       */
+/*   Updated: 2023/02/11 15:47:56 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,10 @@
 int main(int argc, char **argv)
 {
 	if (argc != 4)
-		return (0);
+	{
+		std::cout << "Invalid arg" << std::endl;
+		return 0;
+	}
 	std::ifstream	infile;
 	std::ofstream	outfile; // return the pointer of the string of the string object newfile to outfile;
 	std::string		filetext;
@@ -30,6 +33,11 @@ int main(int argc, char **argv)
 	int				index(0);
 
 	/* EXTRACT THE FILE */
+	if (s1.size() == 0)
+	{
+		std::cout << "Invalid arg" << std::endl;
+		return 0;
+	}
 	infile.open(argv[1]);
 	try {
 		if (infile.is_open())
@@ -38,7 +46,7 @@ int main(int argc, char **argv)
 				filetext += infile.get();
 			if (TEST)
 				std::cout << filetext << std::endl;
-			filetext.erase(filetext.length() - 1, 1); // pour eviter un retour bizarre ad il y a plus rien ?
+			filetext.erase(filetext.length(), 1); // pour eviter un retour bizarre ad il y a plus rien ?
 		}
 		else
 			throw (1);
@@ -62,7 +70,7 @@ int main(int argc, char **argv)
 			filetext.erase(index, s1.length());
 			filetext.insert(index, s2);
 			index += s2.length();
-			index = filetext.find(s1, index + 1); // +1 pour eviter que ca reboucle!
+			index = filetext.find(s1, index);
 		}
 	}
 	/* OUTPUT IN THE NEWFILE */

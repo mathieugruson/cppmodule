@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 14:54:21 by mgruson           #+#    #+#             */
-/*   Updated: 2023/02/09 16:39:35 by mgruson          ###   ########.fr       */
+/*   Updated: 2023/02/11 15:45:10 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ Weapon::~Weapon()
 {
 }
 
-std::string	&Weapon::getType()
+std::string	Weapon::getType() const
 {
 	return(_type);
 }
