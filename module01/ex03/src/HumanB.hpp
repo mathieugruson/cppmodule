@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 14:57:11 by mgruson           #+#    #+#             */
-/*   Updated: 2023/02/10 11:11:08 by mgruson          ###   ########.fr       */
+/*   Updated: 2023/02/11 16:58:48 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,26 @@ public:
 	void	attack();
 };
 
+#ifndef HUMANB_HPP
+# define HUMANB_HPP
+
+# include <iostream>
+
+
+class HumanB {
+ private:
+	/* data */
+ public:
+	HumanB(/* args */);
+	HumanB(const HumanB& obj);
+	~HumanB();
+	HumanB& operator=(const HumanB& obj);
+};
+
+#endif
+
+HumanB::HumanB(/* args */) {}
+HumanB::HumanB(const HumanB& obj) {}
+HumanB::~HumanB() {}
+HumanB& HumanB::operator=(const HumanB& obj) {}
 

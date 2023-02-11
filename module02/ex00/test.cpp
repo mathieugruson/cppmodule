@@ -6,12 +6,35 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 14:55:14 by mgruson           #+#    #+#             */
-/*   Updated: 2023/02/10 19:03:45 by mgruson          ###   ########.fr       */
+/*   Updated: 2023/02/11 13:41:51 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <string>
+
+#ifndef MAIN_CPP
+# define MAIN_CPP
+
+# include <iostream>
+
+
+class main {
+ private:
+	/* data */
+ public:
+	main(/* args */);
+	main(const main& obj);
+	~main();
+	main& operator=(const main& obj);
+};
+
+#endif
+
+main::main(/* args */) {}
+main::main(const main& obj) {}
+main::~main() {}
+main& main::operator=(const main& obj) {}
 
 class Harl
 {
