@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 13:55:03 by mgruson           #+#    #+#             */
-/*   Updated: 2023/02/13 13:14:56 by mgruson          ###   ########.fr       */
+/*   Updated: 2023/02/13 14:58:38 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ Fixed::Fixed(int num)
 
 /*
 
-By multiplying it, we shift it so that the integer part of the value is shift 
+By multiplying it, we shift it so that the integer part of the _rawbits is shift 
 by 8 as the 8 first are going to be reserved for the decimal part
 then, rouding the number is going to allow us to avec juste the right two
 decimal after!

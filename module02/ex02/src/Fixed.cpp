@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/11 13:55:03 by mgruson           #+#    #+#             */
-/*   Updated: 2023/02/13 13:30:34 by mgruson          ###   ########.fr       */
+/*   Created: 2023/02/13 16:08:27 by mgruson           #+#    #+#             */
+/*   Updated: 2023/02/13 17:36:54 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,11 @@
 	
 Fixed::Fixed(void) 
 {
-	std::cout << "Default constructor called" << std::endl;
 	this->_rawbits = 0;
 }
 
-Fixed::Fixed(const Fixed& obj) 
+Fixed::Fixed(const Fixed &obj) 
 {
-	std::cout << "Copy constructor called" << std::endl;
 	this->_rawbits = obj.getRawBits();
 }
 
@@ -32,13 +30,11 @@ Fixed::Fixed(const Fixed& obj)
 
 Fixed::Fixed(int num)
 {
-	std::cout << "Int constructor called" << std::endl;
 	this->_rawbits = num << this->_bits;
-	std::cout << this->_rawbits << std::endl;
 }
 
 		/*
-		By multiplying it, we shift it so that the integer part of the value is shift 
+		By multiplying it, we shift it so that the integer part of the _rawbits is shift 
 		by 8 as the 8 first are going to be reserved for the decimal part
 		then, rouding the number is going to allow us to avec juste the right two
 		decimal after!
@@ -46,14 +42,17 @@ Fixed::Fixed(int num)
 
 Fixed::Fixed(const float num)
 {
-	std::cout << "Float constructor called" << std::endl;
 	this->_rawbits = roundf(num * (1 << this->_bits));
 }
 
+Fixed& Fixed::operator=(const Fixed &obj) 
+{
+	this->_rawbits = obj.getRawBits();
+	return (*this);
+}
 
 Fixed::~Fixed(void) 
 {
-	std::cout << "Destructor called" << std::endl;
 }
 
 /* CONVERTER */
@@ -74,30 +73,144 @@ int	Fixed::toInt(void) const
 	return (this->_rawbits >> this->_bits);
 }
 
-	/* arithmetic operators */
+	/* ARITHMETIC OPERATORS */
 	
-Fixed& Fixed::operator=(const Fixed& obj) 
+
+Fixed	Fixed::operator+(Fixed const &obj) const
 {
-	std::cout << "Copy assignment operator called" << std::endl;
-	this->_rawbits = obj.getRawBits();
+	Fixed ret(this->toFloat() + obj.toFloat());
+	return (ret);
+}
+
+Fixed	Fixed::operator-(Fixed const &obj) const
+{
+	Fixed ret(this->toFloat() - obj.toFloat());
+	return (ret);
+}
+
+Fixed	Fixed::operator*(Fixed const &obj) const
+{
+	Fixed ret(this->toFloat() * obj.toFloat());
+	return (ret);
+}
+
+Fixed	Fixed::operator/(Fixed const &obj) const
+{
+	Fixed ret(this->toFloat() / obj.toFloat());
+	return (ret);
+}
+
+	/* COMPARISON OPERATOR */
+
+bool	Fixed::operator>(Fixed const &obj) const
+{
+	return (this->getRawBits() > obj.getRawBits());
+}
+
+bool	Fixed::operator<(Fixed const &obj) const
+{
+	return (this->getRawBits() < obj.getRawBits());
+}
+
+bool	Fixed::operator>=(Fixed const &obj) const
+{
+	return (this->getRawBits() >= obj.getRawBits());
+}
+
+bool	Fixed::operator<=(Fixed const &obj) const
+{
+	return (this->getRawBits() <= obj.getRawBits());
+}
+
+bool	Fixed::operator==(Fixed const &obj) const
+{
+	return (this->getRawBits() == obj.getRawBits());
+}
+
+bool	Fixed::operator!=(Fixed const &obj) const
+{
+	return (this->getRawBits() != obj.getRawBits());
+}
+
+	/* INCREMENT AND DECREMENT OPERATORS */
+
+/*
+	The difference between ++() and ()++ is that :
+	for i++ : it returns a const, that can't be modified after so that (i++)++ won't compile
+	for ++i : it worls because it return a ref that can be modify (++i)++ will compile
+*/
+
+Fixed&	Fixed::operator++(void)
+{
+	this->_rawbits++;
 	return (*this);
 }
 
-	/* comparison operator */
+const Fixed	Fixed::operator++(int)
+{
+	const Fixed	ret(*this);
 
-	/* increment and decrement operators */
+	this->_rawbits++;
+	return (ret);
+}
 
-	/* geter and setter */
+Fixed&	Fixed::operator--(void)
+{
+	this->_rawbits--;
+	return (*this);
+}
+
+const Fixed	Fixed::operator--(int)
+{
+	const Fixed	ret(*this);
+
+	this->_rawbits--;
+	return (ret);
+}
+
+	/* RETURN MIN AND MAX */
+
+Fixed&	Fixed::min(Fixed &ref1, Fixed &ref2)
+{
+	if (ref1 <= ref2)
+		return ref1;
+	else
+		return ref2;
+}
+
+const Fixed&	Fixed::min(Fixed const &ref1, Fixed const &ref2)
+{
+	if (ref1 <= ref2)
+		return ref1;
+	else
+		return ref2;
+}
+
+Fixed&	Fixed::max(Fixed &ref1, Fixed &ref2)
+{
+	if (ref1 >= ref2)
+		return ref1;
+	else
+		return ref2;
+}
+
+const Fixed&	Fixed::max(Fixed const &ref1, Fixed const &ref2)
+{
+	if (ref1 >= ref2)
+		return ref1;
+	else
+		return ref2;
+}
+
+	/* GETTER and SETTER */
 
 int	Fixed::getRawBits(void) const
 {
-	std::cout << "getRawBits member function called" << std::endl;
 	return (this->_rawbits);
 }
 
 void	Fixed::setRawBits(int const raw)
 {
-	std::cout << "setRawBits member function called" << std::endl;
 	this->_rawbits = raw;
 }
 
