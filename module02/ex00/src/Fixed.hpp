@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 13:53:03 by mgruson           #+#    #+#             */
-/*   Updated: 2023/02/11 19:20:44 by mgruson          ###   ########.fr       */
+/*   Updated: 2023/02/13 12:40:47 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@
 
 class Fixed {
  private:
-	int	_number;
+	int	_rawbits;
 	static const int	_bits = 8;
  public:
-	Fixed(/* args */);
-	Fixed(const Fixed& obj);
-	~Fixed();
+	Fixed(/* args */); // constructeur par defaut
+	Fixed(const Fixed& obj); // constructeur de copie
+	~Fixed(); // destructeur
 	Fixed& operator=(const Fixed& obj);
 
 	int		getRawBits(void) const;

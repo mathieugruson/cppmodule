@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 13:55:03 by mgruson           #+#    #+#             */
-/*   Updated: 2023/02/11 19:21:22 by mgruson          ###   ########.fr       */
+/*   Updated: 2023/02/13 12:16:10 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 Fixed::Fixed(void) 
 {
 	std::cout << "Default constructor called" << std::endl;
-	this->_number = 0;
+	this->_rawbits = 0;
 }
 
 Fixed::Fixed(const Fixed& obj) 
 {
 	std::cout << "Copy constructor called" << std::endl;
-	this->_number = obj.getRawBits();
+	*this = src;
 }
 
 Fixed::~Fixed(void) 
@@ -32,20 +32,18 @@ Fixed::~Fixed(void)
 Fixed& Fixed::operator=(const Fixed& obj) 
 {
 	std::cout << "Copy assignment operator called" << std::endl;
-	if (this != &obj)
-	{
-		this->_number = obj.getRawBits();
-	}
+	this->_rawbits = obj.getRawBits();
 	return (*this);
 }
 
 int	Fixed::getRawBits(void) const
 {
 	std::cout << "getRawBits member function called" << std::endl;
-	return (this->_number);
+	return (this->_rawbits);
 }
 
 void	Fixed::setRawBits(int const raw)
 {
-	this->_number = raw;
+	std::cout << "setRawBits member function called" << std::endl;
+	this->_rawbits = raw;
 }

@@ -6,12 +6,14 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 13:55:03 by mgruson           #+#    #+#             */
-/*   Updated: 2023/02/13 13:14:56 by mgruson          ###   ########.fr       */
+/*   Updated: 2023/02/13 13:30:34 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
+	/* CONSTRUCTOR AND DESTRUCTOR */
+	
 Fixed::Fixed(void) 
 {
 	std::cout << "Default constructor called" << std::endl;
@@ -24,9 +26,9 @@ Fixed::Fixed(const Fixed& obj)
 	this->_rawbits = obj.getRawBits();
 }
 
-/* In this function, the int sent get a bitwize operation. 
-As it is a integer, it will be a X.0, so that it is just necessary to
-shift on the left by 8 so that an int is 8 bits */
+		/* In this function, the int sent get a bitwize operation. 
+		As it is a integer, it will be a X.0, so that it is just necessary to
+		shift on the left by 8 so that an int is 8 bits */
 
 Fixed::Fixed(int num)
 {
@@ -35,13 +37,12 @@ Fixed::Fixed(int num)
 	std::cout << this->_rawbits << std::endl;
 }
 
-/*
-
-By multiplying it, we shift it so that the integer part of the value is shift 
-by 8 as the 8 first are going to be reserved for the decimal part
-then, rouding the number is going to allow us to avec juste the right two
-decimal after!
-*/
+		/*
+		By multiplying it, we shift it so that the integer part of the value is shift 
+		by 8 as the 8 first are going to be reserved for the decimal part
+		then, rouding the number is going to allow us to avec juste the right two
+		decimal after!
+		*/
 
 Fixed::Fixed(const float num)
 {
@@ -49,17 +50,44 @@ Fixed::Fixed(const float num)
 	this->_rawbits = roundf(num * (1 << this->_bits));
 }
 
+
 Fixed::~Fixed(void) 
 {
 	std::cout << "Destructor called" << std::endl;
 }
 
+/* CONVERTER */
+
+		/* before we multiplied by (1 << this->bits), now we divide to have
+		the inverse result as we go from fiexed to float */
+
+float	Fixed::toFloat(void) const
+{
+	return ((float)this->_rawbits / (1 << this->_bits)); 
+}
+
+		/* here, we also do the inverse by shiting to the write so that nothing is left 
+		for decimal part of the number */
+
+int	Fixed::toInt(void) const
+{
+	return (this->_rawbits >> this->_bits);
+}
+
+	/* arithmetic operators */
+	
 Fixed& Fixed::operator=(const Fixed& obj) 
 {
 	std::cout << "Copy assignment operator called" << std::endl;
 	this->_rawbits = obj.getRawBits();
 	return (*this);
 }
+
+	/* comparison operator */
+
+	/* increment and decrement operators */
+
+	/* geter and setter */
 
 int	Fixed::getRawBits(void) const
 {
@@ -73,21 +101,7 @@ void	Fixed::setRawBits(int const raw)
 	this->_rawbits = raw;
 }
 
-/* before we multiplied by (1 << this->bits), now we divide to have
-the inverse result as we go from fiexed to float */
-
-float	Fixed::toFloat(void) const
-{
-	return ((float)this->_rawbits / (1 << this->_bits)); 
-}
-
-/* here, we also do the inverse by shiting to the write so that nothing is left 
-for decimal part of the number */
-
-int	Fixed::toInt(void) const
-{
-	return (this->_rawbits >> this->_bits);
-}
+	/* output operator*/
 
 std::ostream& operator <<(std::ostream &out, const Fixed &fixed)
 {

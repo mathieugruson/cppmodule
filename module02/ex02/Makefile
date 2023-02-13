@@ -6,7 +6,7 @@
 #    By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/01 12:07:22 by chillion          #+#    #+#              #
-#    Updated: 2023/02/13 12:43:28 by mgruson          ###   ########.fr        #
+#    Updated: 2023/02/13 13:21:34 by mgruson          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,8 @@ VAL := valgrind --leak-check=full --track-origins=yes
 
 SRCS =	main.cpp Fixed.cpp
 
-SOFT_NAME := Premiers_pas_vers_une_classe_utile
+SOFT_NAME :=  Maintenant,_on_peut_parler
+
 OBJS = $(SRCS:%.cpp=%.o)
 SRC = $(addprefix $(SRC_DIR),$(SRCS))
 OBJ = $(addprefix $(OBJ_DIR),$(OBJS))
