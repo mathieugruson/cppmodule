@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 19:18:22 by mgruson           #+#    #+#             */
-/*   Updated: 2023/02/13 17:47:14 by mgruson          ###   ########.fr       */
+/*   Updated: 2023/02/15 14:18:53 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int main(void)
 	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
 	Fixed c(20.50f);
 	Fixed d(20.50f);
-	
+
 	std::cout << "\narithmetic operators\n" << std::endl;
 
 	std::cout << "a = b so that A = " << a << std::endl;

@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 16:08:27 by mgruson           #+#    #+#             */
-/*   Updated: 2023/02/13 17:36:54 by mgruson          ###   ########.fr       */
+/*   Updated: 2023/02/15 14:14:37 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,25 +24,17 @@ Fixed::Fixed(const Fixed &obj)
 	this->_rawbits = obj.getRawBits();
 }
 
-		/* In this function, the int sent get a bitwize operation. 
-		As it is a integer, it will be a X.0, so that it is just necessary to
-		shift on the left by 8 so that an int is 8 bits */
-
 Fixed::Fixed(int num)
 {
 	this->_rawbits = num << this->_bits;
 }
 
-		/*
-		By multiplying it, we shift it so that the integer part of the _rawbits is shift 
-		by 8 as the 8 first are going to be reserved for the decimal part
-		then, rouding the number is going to allow us to avec juste the right two
-		decimal after!
-		*/
+
 
 Fixed::Fixed(const float num)
 {
 	this->_rawbits = roundf(num * (1 << this->_bits));
+
 }
 
 Fixed& Fixed::operator=(const Fixed &obj) 
@@ -55,18 +47,10 @@ Fixed::~Fixed(void)
 {
 }
 
-/* CONVERTER */
-
-		/* before we multiplied by (1 << this->bits), now we divide to have
-		the inverse result as we go from fiexed to float */
-
 float	Fixed::toFloat(void) const
 {
 	return ((float)this->_rawbits / (1 << this->_bits)); 
 }
-
-		/* here, we also do the inverse by shiting to the write so that nothing is left 
-		for decimal part of the number */
 
 int	Fixed::toInt(void) const
 {

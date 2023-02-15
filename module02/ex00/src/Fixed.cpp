@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 13:55:03 by mgruson           #+#    #+#             */
-/*   Updated: 2023/02/13 12:16:10 by mgruson          ###   ########.fr       */
+/*   Updated: 2023/02/15 13:45:16 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Fixed::Fixed(void)
 Fixed::Fixed(const Fixed& obj) 
 {
 	std::cout << "Copy constructor called" << std::endl;
-	*this = src;
+	*this = obj;
 }
 
 Fixed::~Fixed(void) 

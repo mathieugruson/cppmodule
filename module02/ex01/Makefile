@@ -6,7 +6,7 @@
 #    By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/01 12:07:22 by chillion          #+#    #+#              #
-#    Updated: 2023/02/13 16:11:22 by mgruson          ###   ########.fr        #
+#    Updated: 2023/02/15 13:50:53 by mgruson          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,9 +23,10 @@ VAL := valgrind --leak-check=full --track-origins=yes
 SRCS =	main.cpp Fixed.cpp
 
 SOFT_NAME := Premiers_pas_vers_une_classe_utile
+
 OBJS = $(SRCS:%.cpp=%.o)
-SRC = $(addpobjix $(SRC_DIR),$(SRCS))
-OBJ = $(addpobjix $(OBJ_DIR),$(OBJS))
+SRC = $(addprefix $(SRC_DIR),$(SRCS))
+OBJ = $(addprefix $(OBJ_DIR),$(OBJS))
 DEP = $(OBJ:%.o=%.d)
 OBJF := ${OBJ_DIR}.cache_exists
 
