@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 14:03:26 by mgruson           #+#    #+#             */
-/*   Updated: 2023/02/16 15:01:36 by mgruson          ###   ########.fr       */
+/*   Updated: 2023/02/16 15:02:14 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ void ScavTrap::guardGate(void)
 
 void ScavTrap::attack(const std::string &target)
 {
-
 	if (target.size() == 0 || this->_name.size() == 0)
 	{
 		std::cout << "A target or a player can't be NULL" << std::endl;

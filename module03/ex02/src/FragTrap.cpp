@@ -1,69 +1,68 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
+/*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 14:03:26 by mgruson           #+#    #+#             */
-/*   Updated: 2023/02/16 15:01:36 by mgruson          ###   ########.fr       */
+/*   Updated: 2023/02/16 15:01:23 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
-ScavTrap::ScavTrap(void) : ClapTrap()
+FragTrap::FragTrap(void) : ClapTrap()
 {
 	this->_hit_points = 100;
-	this->_energy_points = 50;
-	this->_attack_damage = 20;
-	std::cout << "ScavTrap default constructor called" << std::endl;
+	this->_energy_points = 100;
+	this->_attack_damage = 30;
+	std::cout << "FragTrap default constructor called" << std::endl;
 }
 
-ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
+FragTrap::FragTrap(std::string name) : ClapTrap(name)
 {
 	this->_hit_points = 100;
-	this->_energy_points = 50;
-	this->_attack_damage = 20;
-	std::cout << "ScavTrap " << name << " constructor called" << std::endl;
+	this->_energy_points = 100;
+	this->_attack_damage = 30;
+	std::cout << "FragTrap " << name << " constructor called" << std::endl;
 }
 
-ScavTrap::ScavTrap(const ScavTrap& obj) 
+FragTrap::FragTrap(const FragTrap& obj) 
 {
 	this->_name = obj._name;
 	this->_attack_damage = obj._attack_damage;
 	this->_hit_points = obj._hit_points;
 	this->_energy_points = obj._energy_points;
-	std::cout << "ScavTrap " << _name << " copy constructor called" << std::endl;
+	std::cout << "FragTrap " << _name << " copy constructor called" << std::endl;
 }
 
-ScavTrap& ScavTrap::operator=(const ScavTrap& obj) 
+FragTrap& FragTrap::operator=(const FragTrap& obj) 
 {
 	this->_name = obj._name;
 	this->_attack_damage = obj._attack_damage;
 	this->_hit_points = obj._hit_points;
 	this->_energy_points = obj._energy_points;
-	std::cout << "ScavTrap operator = " << this->_name << " called" << std::endl;
+	std::cout << "FragTrap operator = " << this->_name << " called" << std::endl;
 	return (*this);
 
 }
 
-ScavTrap::~ScavTrap(void) 
+FragTrap::~FragTrap(void) 
 {
-	std::cout << "ScavTrap " << this->_name << " destructor called" << std::endl;
+	std::cout << "FragTrap " << this->_name << " destructor called" << std::endl;
 }
 
-void ScavTrap::guardGate(void)
+void FragTrap::highFivesGuys(void)
 {
 	if (this->_hit_points <= 0)
-		std::cout << "ScavTrap " << this->_name << " is dead" << std::endl;
+		std::cout << "FragTrap " << this->_name << " is dead" << std::endl;
 	else
-		std::cout << "ScavTrap " << this->_name << " has entered gate guard mode" << std::endl;
+		std::cout << "FragTrap " << this->_name << " asks for a high fives" << std::endl;
 }
 
-void ScavTrap::attack(const std::string &target)
+void FragTrap::attack(const std::string &target)
 {
-
 	if (target.size() == 0 || this->_name.size() == 0)
 	{
 		std::cout << "A target or a player can't be NULL" << std::endl;
@@ -75,13 +74,13 @@ void ScavTrap::attack(const std::string &target)
 	}
 	else
 	{
-		std::cout << "ScavTrap " << this->_name << " attacks " << target ;
+		std::cout << "FragTrap " << this->_name << " attacks " << target ;
 		std:: cout << ", causing " << this->_attack_damage << " points of damage!" << std::endl;
 		this->_energy_points--;
 	}
 }
 
-void	ScavTrap::announce() const
+void	FragTrap::announce() const
 {
 	std::cout << "Name is " << this->_name << std::endl;
 	std::cout << "Hit points are " << this->_hit_points << std::endl;

@@ -6,7 +6,7 @@
 #    By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/01 12:07:22 by chillion          #+#    #+#              #
-#    Updated: 2023/02/16 14:50:46 by mgruson          ###   ########.fr        #
+#    Updated: 2023/02/16 15:43:31 by mgruson          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,9 +20,9 @@ OBJ_DIR := obj/
 RM := rm
 VAL := valgrind --leak-check=full --track-origins=yes
 
-SRCS =	main.cpp ClapTrap.cpp ScavTrap.cpp
+SRCS =	main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
 
-SOFT_NAME := Serena,_mon_amour_!
+SOFT_NAME := Ok,_ça_devient_bizarre
 
 OBJS = $(SRCS:%.cpp=%.o)
 SRC = $(addprefix $(SRC_DIR),$(SRCS))
