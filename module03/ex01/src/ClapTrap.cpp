@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 14:40:09 by mgruson           #+#    #+#             */
-/*   Updated: 2023/02/16 12:50:53 by mgruson          ###   ########.fr       */
+/*   Updated: 2023/02/16 14:37:23 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& obj)
 
 void ClapTrap::attack(const std::string& target)
 {
+	std::cout << "ClapTrap::attack :" << std::endl;
+
 	if (target.size() == 0 || this->_name.size() == 0)
 	{
 		std::cout << "A target or a player can't be NULL" << std::endl;
@@ -97,9 +99,24 @@ void ClapTrap::beRepaired(unsigned int amount)
 	}
 	else
 	{
-		std::cout << "ClapTrap " << this->_name << " is repaired by getting" \
+		std::cout << "ClapTrap " << this->_name << " is repaired by getting " \
 		<< amount << " point of life" << std::endl;
 		this->_hit_points += amount;
 		this->_energy_points--;
 	}
+}
+
+std::string	ClapTrap::getName() const
+{
+	return (this->_name);
+}
+
+unsigned int	ClapTrap::getEnergyPoints() const
+{
+	return (this->_energy_points);
+}
+
+unsigned int	ClapTrap::getHitPoints() const
+{
+	return (this->_hit_points);
 }
