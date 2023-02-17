@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 16:06:41 by mgruson           #+#    #+#             */
-/*   Updated: 2023/02/17 16:14:11 by mgruson          ###   ########.fr       */
+/*   Updated: 2023/02/17 16:19:13 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class	WrongCat : public WrongAnimal
 	public :
 		WrongCat(void);
 		WrongCat(const WrongCat &src);
-		~WrongCat(void) 
+		~WrongCat(void);
 		WrongCat	&operator=(const WrongCat &rhs);
 };
 

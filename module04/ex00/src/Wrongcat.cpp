@@ -6,11 +6,12 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 16:06:38 by mgruson           #+#    #+#             */
-/*   Updated: 2023/02/17 16:12:56 by mgruson          ###   ########.fr       */
+/*   Updated: 2023/02/17 16:20:58 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "WrongCat.hpp"
+#include "WrongAnimal.hpp"
 
 WrongCat::WrongCat(void)
 {

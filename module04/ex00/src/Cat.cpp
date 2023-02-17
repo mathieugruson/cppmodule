@@ -6,11 +6,10 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 15:37:33 by mgruson           #+#    #+#             */
-/*   Updated: 2023/02/17 16:15:59 by mgruson          ###   ########.fr       */
+/*   Updated: 2023/02/17 16:21:53 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
 #include "Cat.hpp"
 
 Cat::Cat(/* args */) : Animal("Cat")

@@ -6,24 +6,30 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 16:03:37 by mgruson           #+#    #+#             */
-/*   Updated: 2023/02/17 16:08:03 by mgruson          ###   ########.fr       */
+/*   Updated: 2023/02/17 16:19:04 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGCAT_HPP
-# define WRONGCAT_HPP
+#ifndef WRONGANIMAL_HPP
+# define WRONGANIMAL_HPP
 
-# include "WrongAnimal.hpp"
+# include <string>
+# include <iostream>
 
-class	WrongCat : public WrongAnimal
+class WrongAnimal
 {
- private:
- 	/* data */
- public:
- WrongCat(void);
- WrongCat(const WrongCat &src);
- ~WrongCat(void);
- WrongCat	&operator=(const WrongCat &rhs);
+	protected:
+		std::string	type;
+	public:
+
+		WrongAnimal(void);
+		WrongAnimal(const WrongAnimal &src);
+		~WrongAnimal(void);
+
+		WrongAnimal	&operator=(const WrongAnimal &rhs);
+
+		virtual void	makeSound(void) const;
+		std::string		getType(void) const;
 
 };
 

@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 18:14:05 by mgruson           #+#    #+#             */
-/*   Updated: 2023/02/17 15:59:18 by mgruson          ###   ########.fr       */
+/*   Updated: 2023/02/17 16:22:09 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define ANIMAL_CPP
 
 # include <iostream>
-
+# include <string>
 
 class Animal {
  protected:

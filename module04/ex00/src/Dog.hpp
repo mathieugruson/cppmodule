@@ -6,15 +6,14 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 15:40:34 by mgruson           #+#    #+#             */
-/*   Updated: 2023/02/17 16:00:12 by mgruson          ###   ########.fr       */
+/*   Updated: 2023/02/17 16:21:25 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DOG_HPP
 # define DOG_HPP
 
-# include <iostream>
-
+#include <Animal.hpp>
 
 class Dog : public Animal
 {
