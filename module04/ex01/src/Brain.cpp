@@ -1,36 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/17 16:03:37 by mgruson           #+#    #+#             */
-/*   Updated: 2023/02/17 17:48:29 by mgruson          ###   ########.fr       */
+/*   Created: 2023/02/17 17:58:48 by mgruson           #+#    #+#             */
+/*   Updated: 2023/02/17 18:09:21 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGANIMAL_HPP
-# define WRONGANIMAL_HPP
+#include "Brain.hpp"
 
-# include <string>
-# include <iostream>
-
-class WrongAnimal
+Brain::Brain()
 {
-	protected:
-		std::string	_type;
-	public:
+	std::cout << "Brain Default Constructor called" << std::endl;
+}
 
-		WrongAnimal(void);
-		WrongAnimal(const WrongAnimal &src);
-		virtual ~WrongAnimal(void);
+Brain::Brain(Brain const &obj)
+{
+	*this = obj;
+}
 
-		WrongAnimal	&operator=(const WrongAnimal &rhs);
+Brain::~Brain()
+{
+	std::cout << "Brain Destructor called" << std::endl;
+}
 
-		virtual void	makeSound(void) const;
-		std::string		getType(void) const;
-
-};
-
-#endif
+Brain &Brain::operator=(Brain const &obj)
+{
+	std::cout << "Brain Copy assignment operator called" << std::endl;
+	return *this;
+}
