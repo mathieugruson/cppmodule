@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/17 15:36:36 by mgruson           #+#    #+#             */
-/*   Updated: 2023/02/17 15:56:40 by mgruson          ###   ########.fr       */
+/*   Created: 2023/02/17 16:06:41 by mgruson           #+#    #+#             */
+/*   Updated: 2023/02/17 16:14:11 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-# define CAT_HPP
+#ifndef WRONGCAT_HPP
+# define WRONGCAT_HPP
 
-# include <iostream>
+# include "WrongAnimal.hpp"
 
-
-class Cat : public Animal
+class	WrongCat : public WrongAnimal
 {
- private:
-	/* data */
- public:
-	Cat(/* args */);
-	Cat(const Cat& obj);
-	~Cat();
-	Cat& operator=(const Cat& obj);
-	void	makeSound( void ) const;
+	private :
 
+	public :
+		WrongCat(void);
+		WrongCat(const WrongCat &src);
+		~WrongCat(void) 
+		WrongCat	&operator=(const WrongCat &rhs);
 };
 
 #endif

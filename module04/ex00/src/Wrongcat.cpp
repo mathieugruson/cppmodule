@@ -1,43 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   Wrongcat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/17 15:38:50 by mgruson           #+#    #+#             */
-/*   Updated: 2023/02/17 16:16:15 by mgruson          ###   ########.fr       */
+/*   Created: 2023/02/17 16:06:38 by mgruson           #+#    #+#             */
+/*   Updated: 2023/02/17 16:12:56 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
-#include "Dog.hpp"
+#include "WrongCat.hpp"
 
-Dog::Dog(/* args */) : Animal("Dog"),
+WrongCat::WrongCat(void)
 {
-	std::cout << "Dog default constructor called" << std::endl;
+	std::cout << "WrongCat default constructor called" << std::endl;
+	return ;
 }
 
-
-Dog::Dog(const Dog& obj)
+WrongCat::WrongCat(const WrongCat &src)
 {
-	*this = obj;
-	std::cout << "Dog copy constructor called" << std::endl;
+	std::cout << "WrongCat copy constructor called" << std::endl;
+	*this = src;
 }
 
-Dog::~Dog()
+WrongCat::~WrongCat(void)
 {
-	std::cout << "Dog destructor called" << std::endl;
-
+	std::cout << "WrongCat default destructor called" << std::endl;
+	return ;
 }
 
-Dog& Dog::operator=(const Dog& obj)
+WrongCat	&WrongCat::operator=(const WrongCat &obj)
 {
 	this->_type = obj._type;
-	return (*this)
-}
-
-void	Dog::makeSound( void ) const
-{
-	std::cout << "Wouf wouf" << std::endl;
+	return (*this);
 }
