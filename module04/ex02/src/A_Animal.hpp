@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   A_Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/17 15:40:34 by mgruson           #+#    #+#             */
-/*   Updated: 2023/02/18 16:46:08 by mgruson          ###   ########.fr       */
+/*   Created: 2023/02/16 18:14:05 by mgruson           #+#    #+#             */
+/*   Updated: 2023/02/18 17:14:58 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#ifndef A_Animal_CPP
+# define A_Animal_CPP
 
-#include "Animal.hpp"
-#include "Brain.hpp"
+# include <iostream>
+# include <string>
 
-class Dog : public Animal
-{
- private:
-	Brain* _brain;
+class A_Animal {
+ protected:
+	std::string _type;
  public:
-	Dog(/* args */);
-	Dog(std::string type);
-	Dog(const Dog& obj);
-	~Dog();
-	Dog& operator=(const Dog& obj);
-	void		makeSound( void ) const ;
-	std::string	getIdeas(unsigned int i);
-	void		setIdeas(unsigned int i, std::string idea);
+	A_Animal(/* args */);
+	A_Animal(std::string type);
+	A_Animal(const A_Animal& obj);
+	virtual ~A_Animal();
+	A_Animal& operator=(const A_Animal& obj);
+	virtual void	makeSound( void ) const = 0;
+	std::string getType(void) const;
 };
 
 #endif
+
+

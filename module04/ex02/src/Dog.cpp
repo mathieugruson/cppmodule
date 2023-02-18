@@ -6,20 +6,20 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 15:38:50 by mgruson           #+#    #+#             */
-/*   Updated: 2023/02/18 17:11:32 by mgruson          ###   ########.fr       */
+/*   Updated: 2023/02/18 17:17:33 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "A_Animal.hpp"
 #include "Dog.hpp"
 #include "Brain.hpp"
 
-Dog::Dog(/* args */) : Animal("Dog"), _brain(new Brain)
+Dog::Dog(/* args */) : A_Animal("Dog"), _brain(new Brain)
 {
 	std::cout << "Dog default constructor called" << std::endl;
 }
 
-Dog::Dog(const Dog& obj) : Animal(obj), _brain(new Brain)
+Dog::Dog(const Dog& obj) : A_Animal(obj), _brain(new Brain)
 {
 	std::cout << "Dog copy constructor called" << std::endl;
 	*this = obj;

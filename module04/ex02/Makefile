@@ -6,7 +6,7 @@
 #    By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/01 12:07:22 by chillion          #+#    #+#              #
-#    Updated: 2023/02/18 14:55:52 by mgruson          ###   ########.fr        #
+#    Updated: 2023/02/18 17:19:31 by mgruson          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,9 +20,9 @@ OBJ_DIR := obj/
 RM := rm
 VAL := valgrind --leak-check=full --track-origins=yes
 
-SRCS =	main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp Wrongcat.cpp Brain.cpp
+SRCS =	main.cpp A_Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp Wrongcat.cpp Brain.cpp
 
-SOFT_NAME := Je_ne_veux_pas_brûler_le_monde
+SOFT_NAME := Classe_abstraite
 
 OBJS = $(SRCS:%.cpp=%.o)
 SRC = $(addprefix $(SRC_DIR),$(SRCS))
