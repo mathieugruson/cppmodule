@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 12:26:23 by mgruson           #+#    #+#             */
-/*   Updated: 2023/02/20 18:13:48 by mgruson          ###   ########.fr       */
+/*   Updated: 2023/02/20 18:22:12 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,10 @@
 
 int main()
 {
-	std::cout << "TEST 0" << std::endl;
+	std::cout << "TEST Shrubbery" << std::endl;
 	ShrubberyCreationForm c("c");
-	std::cout << "TEST 1" << std::endl;
 	Bureaucrat Will("Will", 1);
-	std::cout << "TEST 2" << std::endl;
+	Will.signForm(c);
 	try
 	{
 		c.execute(Will);
@@ -30,4 +29,5 @@ int main()
 		std::cerr << e.what() << '\n';
 	}
 
+	
 }

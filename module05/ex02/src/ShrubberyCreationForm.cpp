@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 17:21:43 by mgruson           #+#    #+#             */
-/*   Updated: 2023/02/20 18:12:47 by mgruson          ###   ########.fr       */
+/*   Updated: 2023/02/20 18:29:42 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,9 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : Form(target, 
 	std::cout << "ShrubberyCreationForm Overload Constructor called" << std::endl;
 }
 
-void ShrubberyCreationForm::execute(const Bureaucrat& b) const
+void ShrubberyCreationForm::execute(const Bureaucrat& obj) const
 {
-	this->checkBeforeExec(b);
+	this->checkBeforeExec(obj);
 	std::ofstream ofs;
 	std::string outfile;
 	outfile = getName();
@@ -52,7 +52,7 @@ void ShrubberyCreationForm::execute(const Bureaucrat& b) const
 		std::cout << "sorry, can't open " << outfile << std::endl;
 		return ; 
 	}
-	std::string contents = 	
+	std::string contents = 
 "                           %                         %            \n\
  @@@     %    @@     @@@@                                  *       \n\
     @@ %     @  %   @   %          %               ;      ***      \n\

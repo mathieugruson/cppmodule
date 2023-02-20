@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 17:18:09 by mgruson           #+#    #+#             */
-/*   Updated: 2023/02/20 17:51:06 by mgruson          ###   ########.fr       */
+/*   Updated: 2023/02/20 18:29:54 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ class ShrubberyCreationForm : public Form
 	ShrubberyCreationForm& operator=(const ShrubberyCreationForm& obj);
 	~ShrubberyCreationForm(void);
 	ShrubberyCreationForm(std::string target);
-	void execute(const Bureaucrat& b) const;
+	void execute(const Bureaucrat& obj) const;
 
 };
 
