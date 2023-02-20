@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 12:26:23 by mgruson           #+#    #+#             */
-/*   Updated: 2023/02/20 15:51:17 by mgruson          ###   ########.fr       */
+/*   Updated: 2023/02/20 16:27:31 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,66 +15,89 @@
 
 int main()
 {
-	Bureaucrat mathieu("Mathieu", 150);
-	std::cout << mathieu << std::endl;
+	std::cout << "TEST 0" << std::endl;
 	
-	Bureaucrat anonym;
-	std::cout << anonym << std::endl;
+	Form Visa("Travel Permit", 50, 150);
+	std::cout << Visa << std::endl;
+	std::cout << "TEST 0bis" << std::endl;
 
-	Bureaucrat cyril("Cyril", 1);
-	std::cout << cyril << std::endl;
+	Form Esta(Visa);
+	std::cout << Esta << std::endl;
+	std::cout << "TEST 0ter" << std::endl;
+	Form Ata;
+	Ata = Visa;
+	std::cout << Ata << std::endl;
 
-	Bureaucrat cheater(cyril);
-	std::cout << "The cheater says he is " << cheater << std::endl;
-
-	cheater = mathieu;
-	std::cout << "Now, the cheater says he is " << cheater << std::endl;
-
-	/* TEST INCREMENTATION DECREMENTATION */
-
-
-	std::cout << "C0" << std::endl;
-
+	std::cout << "TEST 1" << std::endl;
 	try
 	{
-		cyril.incrementGrade();
+		Bureaucrat Mathieu("Mathieu", 150);
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
 	}
 
+	std::cout << "TEST 2" << std::endl;
 	try
 	{
-		mathieu.decrementGrade();
+		Form BuildingPermit("Building Permit", 50, 151);
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
 	}
 
-	
-	/* TEST EXCEPTION */
-	std::cout << "C2" << std::endl;
+	std::cout << "TEST 3" << std::endl;
 	try
 	{
-		Bureaucrat test("test", 0);
+		Form BuildingPermit("Building Permit", 50, 150);
+		Bureaucrat Mathieu("Mathieu", 150);
+		BuildingPermit.beSigned(Mathieu);
+		std::cout << BuildingPermit << std::endl;
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
 	}
 
+	std::cout << "TEST 4" << std::endl;
 	try
 	{
-		Bureaucrat test1("test1", 151);
+		Form BuildingPermit("Building Permit", 50, 150);
+		Bureaucrat Mathieu("Mathieu", 50);
+		BuildingPermit.beSigned(Mathieu);
+		std::cout << BuildingPermit << std::endl;
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
 	}
 
-	std::cout << "DESTRUCTION" << std::endl;
+	std::cout << "TEST 5" << std::endl;
+	try
+	{
+		Form BuildingVIPPermit("Building VIP Permit", 1, 1);
+		Bureaucrat Mathieu("Mathieu", 50);
+		Mathieu.signForm(BuildingVIPPermit);
+		std::cout << BuildingVIPPermit << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 
-	return 0;
+	std::cout << "TEST 6" << std::endl;
+	try
+	{
+		Form BuildingVIPPermit("Building VIP Permit", 1, 1);
+		Bureaucrat Mathieu("Mathieu", 1);
+		Mathieu.signForm(BuildingVIPPermit);
+		std::cout << BuildingVIPPermit << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	return (0);
 }

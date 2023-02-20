@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 12:06:31 by mgruson           #+#    #+#             */
-/*   Updated: 2023/02/20 16:00:58 by mgruson          ###   ########.fr       */
+/*   Updated: 2023/02/20 16:34:01 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ Bureaucrat::Bureaucrat() : _name("Faceless"), _grade(150)
 Bureaucrat::Bureaucrat(std::string name, unsigned int grade) : _name(name), _grade(grade)
 {
 	if (grade < 1)
-			throw Bureaucrat::GradeTooLowException();
-	if (grade > 150)
 			throw Bureaucrat::GradeTooHighException();
+	if (grade > 150)
+			throw Bureaucrat::GradeTooLowException();
 	std::cout << "Bureaucrat Overload Constructor called" << std::endl;
 }
 

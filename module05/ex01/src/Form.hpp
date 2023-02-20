@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 14:44:04 by mgruson           #+#    #+#             */
-/*   Updated: 2023/02/20 15:52:00 by mgruson          ###   ########.fr       */
+/*   Updated: 2023/02/20 16:06:04 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ class Form
 
 	public:
 	Form();
-	Form(std::string name, bool sign, unsigned int GradeSign, unsigned int GradeExec);
+	Form(std::string name, unsigned int GradeSign, unsigned int GradeExec);
 	Form(Form const &obj);
 	~Form();
 	Form &operator=(Form const &obj);

@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 14:52:15 by mgruson           #+#    #+#             */
-/*   Updated: 2023/02/20 16:00:48 by mgruson          ###   ########.fr       */
+/*   Updated: 2023/02/20 16:22:35 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ Form::Form() : _name("Regular form"), _sign(false), _GradeSign(150), _GradeExec(
 	std::cout << "Form Default Constructor called" << std::endl;
 }
 
-Form::Form(std::string name, bool sign, unsigned int GradeSign, unsigned int GradeExec) :
-_name(name), _sign(sign), _GradeSign(GradeSign), _GradeExec(GradeExec) 
+Form::Form(std::string name, unsigned int GradeSign, unsigned int GradeExec) :
+_name(name), _sign(false), _GradeSign(GradeSign), _GradeExec(GradeExec) 
 {
 	if (GradeSign > 150 || GradeExec > 150)
 		throw Form::GradeTooLowException();
@@ -77,15 +77,15 @@ std::ostream& operator <<(std::ostream &out, const Form &form)
 {
 	if (form.getSign() == true)
 	{
-		out << "The form name is : " << form.getName() << "\n" << \
-		"It requires an grade of " << form.getGradeSign() << " to sign it and a grade of " << \
-		form.getGradeExec() << " to execute it\n Currently, it is signed" << std::endl;
+		out << "The form name is : " << form.getName() << \
+		". It requires an grade of " << form.getGradeSign() << " to sign it and a grade of " << \
+		form.getGradeExec() << " to execute it\nCurrently, the form signed" << std::endl;
 	}
 	else
 	{
-		out << "The form name is : " << form.getName() << "\n" << \
-		"It requires an grade of " << form.getGradeSign() << " to sign it and a grade of " << \
-		form.getGradeExec() << " to execute it\n Currently, it is unsigned" << std::endl;
+		out << "The form name is : " << form.getName() << \
+		". It requires an grade of " << form.getGradeSign() << " to sign it and a grade of " << \
+		form.getGradeExec() << " to execute it\nCurrently, the form is unsigned" << std::endl;
 	}
 
 	return (out);
