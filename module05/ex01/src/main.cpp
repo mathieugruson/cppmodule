@@ -6,10 +6,11 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 12:26:23 by mgruson           #+#    #+#             */
-/*   Updated: 2023/02/20 14:16:40 by mgruson          ###   ########.fr       */
+/*   Updated: 2023/02/20 15:51:17 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Form.hpp"
 #include "Bureaucrat.hpp"
 
 int main()

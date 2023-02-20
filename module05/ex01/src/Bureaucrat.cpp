@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 12:06:31 by mgruson           #+#    #+#             */
-/*   Updated: 2023/02/20 15:22:40 by mgruson          ###   ########.fr       */
+/*   Updated: 2023/02/20 16:00:58 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ Bureaucrat::Bureaucrat() : _name("Faceless"), _grade(150)
 Bureaucrat::Bureaucrat(std::string name, unsigned int grade) : _name(name), _grade(grade)
 {
 	if (grade < 1)
-			throw Bureaucrat::GradeTooHighException();
-	if (grade > 150)
 			throw Bureaucrat::GradeTooLowException();
+	if (grade > 150)
+			throw Bureaucrat::GradeTooHighException();
 	std::cout << "Bureaucrat Overload Constructor called" << std::endl;
 }
 
@@ -63,7 +63,7 @@ void	Bureaucrat::incrementGrade()
 
 const char * Bureaucrat::GradeTooLowException::what(void) const throw()
 {
-	return "The grade can't be higher than 150";
+	return "It's grade is too low";
 }
 
 void	Bureaucrat::decrementGrade()
@@ -76,9 +76,21 @@ void	Bureaucrat::decrementGrade()
 
 const char * Bureaucrat::GradeTooHighException::what(void) const throw()
 {
-	return "The grade can't be smaller than 1";
+	return "It's grade is too high";
 }
 
+void	Bureaucrat::signForm(Form &obj) const
+{
+	try
+	{
+		obj.beSigned(*this);
+		std::cout << this->getName() << " signed " << obj.getName() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << this->getName() << " couldn't sign " << obj.getName() << " because "<< e.what() << std::endl;
+	}
+}
 
 std::ostream& operator <<(std::ostream &out, const Bureaucrat &bureaucrat)
 {
