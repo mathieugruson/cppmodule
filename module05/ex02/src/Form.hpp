@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 14:44:04 by mgruson           #+#    #+#             */
-/*   Updated: 2023/02/20 16:06:04 by mgruson          ###   ########.fr       */
+/*   Updated: 2023/02/20 18:04:57 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,9 @@ class Form
 	unsigned int		getGradeSign() const;
 	unsigned int		getGradeExec() const;
 	void 				beSigned(Bureaucrat const &obj);
-
+	virtual void		execute(const Bureaucrat& b) const = 0;
+	void				checkBeforeExec(const Bureaucrat& b) const;
+	
 	class GradeTooHighException : public std::exception
 	{
 		public:
@@ -51,9 +53,14 @@ class Form
 		public:
 		const char * what(void) const throw();
 	};
+	class FormNotSigned : public std::exception
+	{
+		public:
+		  const char * what(void) const throw();
+	};
 };
 
-std::ostream& operator <<(std::ostream &out, const Form &form);
+std::ostream& operator <<(std::ostream &out, const Form &obj);
 
 
 #endif
