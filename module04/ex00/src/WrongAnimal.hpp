@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 16:03:37 by mgruson           #+#    #+#             */
-/*   Updated: 2023/02/17 17:48:29 by mgruson          ###   ########.fr       */
+/*   Updated: 2023/02/18 18:15:57 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@ class WrongAnimal
 
 		WrongAnimal(void);
 		WrongAnimal(const WrongAnimal &src);
-		virtual ~WrongAnimal(void);
+		~WrongAnimal(void);
 
 		WrongAnimal	&operator=(const WrongAnimal &rhs);
 
-		virtual void	makeSound(void) const;
+		void	makeSound(void) const;
 		std::string		getType(void) const;
 
 };

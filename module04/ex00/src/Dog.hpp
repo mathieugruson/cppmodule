@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 15:40:34 by mgruson           #+#    #+#             */
-/*   Updated: 2023/02/17 18:45:31 by mgruson          ###   ########.fr       */
+/*   Updated: 2023/02/18 18:17:34 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,8 @@ class Dog : public Animal
 	/* data */
  public:
 	Dog(/* args */);
-	Dog(std::string type);
 	Dog(const Dog& obj);
-	~Dog();
+	virtual ~Dog();
 	Dog& operator=(const Dog& obj);
 	void	makeSound( void ) const;
 };

@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 15:36:36 by mgruson           #+#    #+#             */
-/*   Updated: 2023/02/18 16:46:12 by mgruson          ###   ########.fr       */
+/*   Updated: 2023/02/18 18:16:39 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class Cat : public Animal
  public:
 	Cat(/* args */);
 	Cat(const Cat& obj);
-	~Cat();
+	virtual ~Cat();
 	Cat& operator=(const Cat& obj);
 	void		makeSound( void ) const;
 	std::string	getIdeas(unsigned int i);
