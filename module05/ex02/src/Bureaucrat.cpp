@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 12:06:31 by mgruson           #+#    #+#             */
-/*   Updated: 2023/02/20 16:34:01 by mgruson          ###   ########.fr       */
+/*   Updated: 2023/02/21 15:57:27 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,17 +79,16 @@ const char * Bureaucrat::GradeTooHighException::what(void) const throw()
 	return "It's grade is too high";
 }
 
-void	Bureaucrat::signForm(Form &obj) const
+void	Bureaucrat::signForm(A_Form &obj) const
 {
-	try
-	{
-		obj.beSigned(*this);
-		std::cout << this->getName() << " signed " << obj.getName() << std::endl;
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << this->getName() << " couldn't sign " << obj.getName() << " because "<< e.what() << std::endl;
-	}
+	obj.beSigned(*this);
+	std::cout << this->getName() << " signed " << obj.getName() << std::endl;
+}
+
+void Bureaucrat::executeForm(const A_Form & A_Form)
+{
+	A_Form.execute(*this);
+	std::cout << this->getName() << " executed " << A_Form.getName() << std::endl;
 }
 
 std::ostream& operator <<(std::ostream &out, const Bureaucrat &bureaucrat)

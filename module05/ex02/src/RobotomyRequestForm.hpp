@@ -6,32 +6,34 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 18:22:49 by mgruson           #+#    #+#             */
-/*   Updated: 2023/02/20 18:27:56 by mgruson          ###   ########.fr       */
+/*   Updated: 2023/02/21 15:37:24 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ROBOTOMYREQUESTFORM_HPP
-#define ROBOTOMYREQUESTFORM_HPP_HPP
+#define ROBOTOMYREQUESTFORM_HPP
 
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <cstdlib>
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "A_Form.hpp"
 
-class RobotomyRequestForm : public Form
+class RobotomyRequestForm : public A_Form
 {
 	private:
 	/* data */
 	RobotomyRequestForm();
-
+	std::string _target;
 	public:
+	RobotomyRequestForm(std::string target);
 	RobotomyRequestForm(const RobotomyRequestForm& obj);
 	RobotomyRequestForm& operator=(const RobotomyRequestForm& obj);
 	~RobotomyRequestForm(void);
-	RobotomyRequestForm(std::string target);
-	void execute(const Bureaucrat& b) const;
+	void		execute(Bureaucrat const & executor) const;
+	std::string	getTarget(void) const;
 
 };
 

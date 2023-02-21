@@ -6,7 +6,7 @@
 #    By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/01 12:07:22 by chillion          #+#    #+#              #
-#    Updated: 2023/02/20 17:44:15 by mgruson          ###   ########.fr        #
+#    Updated: 2023/02/21 15:13:10 by mgruson          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ OBJ_DIR := obj/
 RM := rm
 VAL := valgrind --leak-check=full --track-origins=yes
 
-SRCS =	main.cpp Bureaucrat.cpp Form.cpp ShrubberyCreationForm.cpp
+SRCS =	main.cpp Bureaucrat.cpp A_Form.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp
 
 SOFT_NAME := Form
 
