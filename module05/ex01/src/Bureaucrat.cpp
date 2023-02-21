@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 12:06:31 by mgruson           #+#    #+#             */
-/*   Updated: 2023/02/20 16:34:01 by mgruson          ###   ########.fr       */
+/*   Updated: 2023/02/21 18:28:21 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,10 +68,10 @@ const char * Bureaucrat::GradeTooLowException::what(void) const throw()
 
 void	Bureaucrat::decrementGrade()
 {
-		if (this->_grade != 150)
-			this->_grade++;
-		else
-			throw Bureaucrat::GradeTooLowException();
+	if (this->_grade != 150)
+		this->_grade++;
+	else
+		throw Bureaucrat::GradeTooLowException();
 }
 
 const char * Bureaucrat::GradeTooHighException::what(void) const throw()
@@ -81,15 +81,8 @@ const char * Bureaucrat::GradeTooHighException::what(void) const throw()
 
 void	Bureaucrat::signForm(Form &obj) const
 {
-	try
-	{
-		obj.beSigned(*this);
-		std::cout << this->getName() << " signed " << obj.getName() << std::endl;
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << this->getName() << " couldn't sign " << obj.getName() << " because "<< e.what() << std::endl;
-	}
+	obj.beSigned(*this);
+	std::cout << this->getName() << " signed " << obj.getName() << std::endl;
 }
 
 std::ostream& operator <<(std::ostream &out, const Bureaucrat &bureaucrat)

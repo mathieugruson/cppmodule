@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 12:26:23 by mgruson           #+#    #+#             */
-/*   Updated: 2023/02/21 17:58:15 by mgruson          ###   ########.fr       */
+/*   Updated: 2023/02/21 18:16:32 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,49 @@ int main()
 		Intern b;
 
 		A_Form* rrf;
-		rrf = b.makeForm("robotomy request", "Bender");
+		rrf = b.makeForm("robotomy request", "Blender");
+
+		a.signForm(*rrf);
+
+		std::cout << *rrf << std::endl;
+		std::cout << std::endl;
+		a.executeForm(*rrf);
+		delete rrf;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+
+	std::cout << "Test intern OK\n" << std::endl;
+	try
+	{
+		Bureaucrat a("a", 1);
+		Intern b;
+
+		A_Form* rrf;
+		rrf = b.makeForm("shrubbery creation", "Banger");
+
+		a.signForm(*rrf);
+
+		std::cout << *rrf << std::endl;
+		std::cout << std::endl;
+		a.executeForm(*rrf);
+		delete rrf;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+
+	std::cout << "Test intern OK\n" << std::endl;
+	try
+	{
+		Bureaucrat a("a", 1);
+		Intern b;
+
+		A_Form* rrf;
+		rrf = b.makeForm("presidential pardon", "Badder");
 
 		a.signForm(*rrf);
 
