@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 16:09:45 by mgruson           #+#    #+#             */
-/*   Updated: 2023/02/21 16:50:04 by mgruson          ###   ########.fr       */
+/*   Updated: 2023/02/21 17:47:11 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,17 @@ Intern::Intern()
 {
 	std::cout << "Intern Default Constructor called" << std::endl;
 }
+
 Intern::Intern(Intern const &obj)
 {
 	*this = obj;
 }
+
 Intern::~Intern()
 {
 	std::cout << "Intern Destructor called" << std::endl;
 }
+
 Intern &Intern::operator=(Intern const &obj)
 {
 	(void)obj;
@@ -33,22 +36,28 @@ Intern &Intern::operator=(Intern const &obj)
 
 const char * Intern::FormNotExisting::what(void) const throw()
 {
-	return "The Form does not exist";
+	return "The Form asked does not exist";
 }
 
-A_Form	*Intern::makeForm(std::string name, std::string target)
+A_Form	*Intern::makeForm(const std::string form, const std::string target)
 {
-	std::string	names[3] = { "shrubbery creation", "robotomy request", "presidential pardon" };
-	A_Form	forms[3] =  {PresidentialPardonForm(target), RobotomyRequestForm(target), ShrubberyCreationForm(target)};
-
-	for (int i = 0; i < 3; i++)
+	const std::string	forms[3] = { "shrubbery creation", "robotomy request", "presidential pardon" };
+	int i = 0;
+	
+	while (i < 3 && forms[i] != form)
+		i++;
+	switch (i)
 	{
-		if (names[i] == name)
-		{
-			std::cout << "Intern creates a form for " << name << std::endl;
-			return (new forms[i])
-		}
+		case 0 :
+			std::cout << "Intern creates a " << forms[0] << " form." << std::endl;
+			return (new ShrubberyCreationForm(target));
+		case 1 :
+			std::cout << "Intern creates a " << forms[1] << " form." << std::endl;
+			return (new RobotomyRequestForm(target));
+		case 2 :
+			std::cout << "Intern creates a " << forms[1] << " form." << std::endl;
+			return (new PresidentialPardonForm(target));
+		default :
+			throw (Intern::FormNotExisting());
 	}
-	throw Intern::FormNotExisting();
-	return (NULL);
 }

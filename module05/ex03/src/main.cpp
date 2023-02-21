@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 12:26:23 by mgruson           #+#    #+#             */
-/*   Updated: 2023/02/21 16:46:48 by mgruson          ###   ########.fr       */
+/*   Updated: 2023/02/21 17:58:15 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,188 +19,48 @@
 
 int main()
 {
-	std::cout << "TEST ShrubberyCreationForm\n" << std::endl;
+	std::cout << "Test intern OK\n" << std::endl;
+	try
 	{
+		Bureaucrat a("a", 1);
+		Intern b;
 
-	ShrubberyCreationForm c("c");
-	ShrubberyCreationForm e("e");
-	std::cout << c.getName() << std::endl;
-	std::cout << c.getTarget()<< std::endl;
-	ShrubberyCreationForm d(c);
-	e = c;
+		A_Form* rrf;
+		rrf = b.makeForm("robotomy request", "Bender");
+
+		a.signForm(*rrf);
+
+		std::cout << *rrf << std::endl;
+		std::cout << std::endl;
+		a.executeForm(*rrf);
+		delete rrf;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+
+	std::cout << "\nTest intern KO\n" << std::endl;
+
+	try
+	{
+		Bureaucrat a("a", 1);
+		Intern b;
+
+		A_Form* rrf2;
+		rrf2 = b.makeForm("street request", "Banger");
+
+		a.signForm(*rrf2);
+
+		std::cout << *rrf2 << std::endl;
+		std::cout << std::endl;
+		a.executeForm(*rrf2);
+		delete rrf2;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 	
-	std::cout << c.getTarget() << " + " << c  << std::endl;
-	std::cout << d.getTarget() << " + " << d  << std::endl;
-	std::cout << e.getTarget() << " + " << e  << std::endl;
-
-	Bureaucrat Will("Will", 146);
-	Bureaucrat Amelie("Amelie", 136);
-
-	try
-	{
-		c.execute(Will);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
-	try
-	{
-		Will.signForm(c);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
-	Will.incrementGrade();
-	try
-	{
-		Will.signForm(c);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
-	try
-	{
-		c.execute(Will);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
-	try
-	{
-		c.execute(Amelie);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
-	std::cout << "Destructor\n" << std::endl;
-	}
-
-	/******************************************************/
-	std::cout << "\nTEST RobotomyRequestForm\n" << std::endl;
-	{
-	RobotomyRequestForm c("c");
-	RobotomyRequestForm e("e");
-	std::cout << c.getName() << std::endl;
-	std::cout << c.getTarget()<< std::endl;
-	RobotomyRequestForm d(c);
-	e = c;
-	
-	std::cout << c.getTarget() << " + " << c  << std::endl;
-	std::cout << d.getTarget() << " + " << d  << std::endl;
-	std::cout << e.getTarget() << " + " << e  << std::endl;
-
-	Bureaucrat Will("Will", 72);
-	Bureaucrat Amelie("Amelie", 45);
-
-	try
-	{
-		Will.executeForm(c);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
-	try
-	{
-		Will.signForm(c);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
-	Will.decrementGrade();
-	try
-	{
-		c.beSigned(Will);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
-	try
-	{
-		c.execute(Amelie);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
-	std::cout << "Destructor\n" << std::endl;
-	}
-
-	/******************************************************/
-	std::cout << "\nTEST PresidentialPardonForm\n" << std::endl;
-	{
-
-	PresidentialPardonForm c("c");
-	PresidentialPardonForm e("e");
-	std::cout << c.getName() << std::endl;
-	std::cout << c.getTarget()<< std::endl;
-	PresidentialPardonForm d(c);
-	e = c;
-	
-	std::cout << c.getTarget() << " + " << c  << std::endl;
-	std::cout << d.getTarget() << " + " << d  << std::endl;
-	std::cout << e.getTarget() << " + " << e  << std::endl;
-
-	Bureaucrat Will("Will", 146);
-	Bureaucrat Amelie("Amelie", 136);
-	Bureaucrat Obama("Obama", 1);
-	try
-	{
-		Will.signForm(c);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
-	Will.incrementGrade();
-	try
-	{
-		c.beSigned(Will);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
-	try
-	{
-		c.execute(Will);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
-	try
-	{
-		c.execute(Amelie);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
-	try
-	{
-		Obama.signForm(c);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
-	try
-	{
-		Obama.executeForm(c);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
-	std::cout << "Destructor\n" << std::endl;
-	}
-	return 0;
+	return (0);
 }

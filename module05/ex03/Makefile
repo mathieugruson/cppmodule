@@ -6,7 +6,7 @@
 #    By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/01 12:07:22 by chillion          #+#    #+#              #
-#    Updated: 2023/02/21 16:45:57 by mgruson          ###   ########.fr        #
+#    Updated: 2023/02/21 17:50:15 by mgruson          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ VAL := valgrind --leak-check=full --track-origins=yes
 
 SRCS =	main.cpp Bureaucrat.cpp A_Form.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp Intern.cpp
 
-SOFT_NAME := Form
+SOFT_NAME := Intern
 
 OBJS = $(SRCS:%.cpp=%.o)
 SRC = $(addprefix $(SRC_DIR),$(SRCS))
