@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 18:59:36 by mgruson           #+#    #+#             */
-/*   Updated: 2023/02/22 14:06:13 by mgruson          ###   ########.fr       */
+/*   Updated: 2023/02/22 14:35:34 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ void ScalarConverter::convert(const std::string& str)
 	bool (*func[4])(std::string str) = {ScalarConverter::isChar, ScalarConverter::isInt, ScalarConverter::isFloat, ScalarConverter::isDouble};
 	unsigned long	i = 0;
 	while(func[i] && func[i](str) == false)
-		std::cout << i++ << std::endl;
-
+		i++;
+		
 	char	_char = 0;
 	int		_int = 0;
 	float	_float = 0;
@@ -51,18 +51,70 @@ void ScalarConverter::convert(const std::string& str)
 	{
 		case 0 :
 			_char = str[0];
+			displayChar(_char);
+			break;
 		case 1 :
 			_int = atoi(str.c_str());
-			// static_cast<int>(str);
+			std::cout << _int << std::endl;
+			displayInt(_int);
+			break;
 		case 2 :
 			_float = std::atof(str.c_str());
-			// static_cast<float>(str);
+			displayFloat(_float);
+			break;
 		case 3 :
 			_double = std::strtod(str.c_str(), NULL);
-			// static_cast<double>(str);
+			displayDouble(_double);
+			break;
 		default :
-			std::cout << "default" << std::endl;
+			std::cout << "impossible" << std::endl;
 	}
+}
+
+void	ScalarConverter::displayChar(char _char)
+{
+	if (std::isgraph(_char))
+		std::cout << "char: " << _char << std::endl;
+	else
+		std::cout << "char: " << "Non displayable" << std::endl;
+
+	int	_int = static_cast<int>(_char);
+	std::cout << "int: " << _int << std::endl;
+
+	float	_float = static_cast<float>(_char);
+	std::cout << "float: " << _float << std::endl;
+	
+	double	_double = static_cast<double>(_char);
+	std::cout << "double: " << _double << std::endl;
+}
+
+void	ScalarConverter::displayInt(int _int)
+{
+	char _char = static_cast<char>(_int);
+	if (std::isgraph(_char) && _int < 256)
+		std::cout << "char: " << _char << std::endl;
+	else
+		std::cout << "char: " << "Non displayable" << std::endl;
+	
+	std::cout << "int: " << _int << std::endl;
+
+	float	_float = static_cast<float>(_int);
+	std::cout << "float: " << _float << std::endl;
+	
+	double	_double = static_cast<double>(_int);
+	std::cout << "double: " << _double << std::endl;
+}
+
+void	ScalarConverter::displayFloat(float _float)
+{
+	(void)_float;
+
+}
+
+void	ScalarConverter::displayDouble(double _double)
+{
+	(void)_double;
+
 }
 
 bool ScalarConverter::isInt(std::string str)
@@ -80,7 +132,7 @@ bool ScalarConverter::isInt(std::string str)
 
 bool ScalarConverter::isChar(std::string str)
 {
-	if (str.size() == 1 && std::isdigit(str[0]))
+	if (str.size() == 1 && !std::isdigit(str[0]))
 		return (true);
 	return (false);
 
