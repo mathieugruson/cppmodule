@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 18:59:36 by mgruson           #+#    #+#             */
-/*   Updated: 2023/02/22 14:35:34 by mgruson          ###   ########.fr       */
+/*   Updated: 2023/02/22 17:26:54 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,38 +37,46 @@ ScalarConverter &ScalarConverter::operator=(ScalarConverter const &obj)
 
 void ScalarConverter::convert(const std::string& str)
 {
-	bool (*func[4])(std::string str) = {ScalarConverter::isChar, ScalarConverter::isInt, ScalarConverter::isFloat, ScalarConverter::isDouble};
+	bool (*func[5])(std::string str) = {ScalarConverter::isChar, ScalarConverter::isInt, ScalarConverter::isFloat, ScalarConverter::isDouble, NULL};
 	unsigned long	i = 0;
+	
 	while(func[i] && func[i](str) == false)
 		i++;
-		
+
 	char	_char = 0;
 	int		_int = 0;
-	float	_float = 0;
-	double	_double = 0;
+	float	_float = 0.0f;
+	double	_double = 0.0;
 	
 	switch (i)
 	{
 		case 0 :
+			std::cout << i << std::endl;
 			_char = str[0];
 			displayChar(_char);
 			break;
 		case 1 :
+			std::cout << i << std::endl;
 			_int = atoi(str.c_str());
-			std::cout << _int << std::endl;
 			displayInt(_int);
 			break;
 		case 2 :
+			std::cout << i << std::endl;
 			_float = std::atof(str.c_str());
-			displayFloat(_float);
+			displayFloat(_float, str);
 			break;
 		case 3 :
+			std::cout << i << std::endl;
 			_double = std::strtod(str.c_str(), NULL);
-			displayDouble(_double);
+			displayDouble(_double, str);
 			break;
-		default :
-			std::cout << "impossible" << std::endl;
+		default : 
+			std::cout << "char: " << "impossible" << std::endl;
+			std::cout << "int: " << "impossible" << std::endl;
+			std::cout << "float: " << "impossible" << std::endl;
+			std::cout << "double: " << "impossible" << std::endl;
 	}
+	return ;
 }
 
 void	ScalarConverter::displayChar(char _char)
@@ -82,10 +90,10 @@ void	ScalarConverter::displayChar(char _char)
 	std::cout << "int: " << _int << std::endl;
 
 	float	_float = static_cast<float>(_char);
-	std::cout << "float: " << _float << std::endl;
+	std::cout << "float: " << _float << ".0f" << std::endl;
 	
 	double	_double = static_cast<double>(_char);
-	std::cout << "double: " << _double << std::endl;
+	std::cout << "double: " << _double << ".0" <<std::endl;
 }
 
 void	ScalarConverter::displayInt(int _int)
@@ -99,22 +107,79 @@ void	ScalarConverter::displayInt(int _int)
 	std::cout << "int: " << _int << std::endl;
 
 	float	_float = static_cast<float>(_int);
-	std::cout << "float: " << _float << std::endl;
+	std::cout << "float: " << _float << ".0f" << std::endl;
 	
 	double	_double = static_cast<double>(_int);
-	std::cout << "double: " << _double << std::endl;
+	std::cout << "double: " << _double << ".0" << std::endl;
 }
 
-void	ScalarConverter::displayFloat(float _float)
+void	ScalarConverter::displayFloat(float _float, std::string str)
 {
-	(void)_float;
+	char	_char = static_cast<char>(_float);
+	int		_int = static_cast<int>(_float);
+	double	_double = static_cast<double>(_float);
 
+	if (std::isgraph(_char))
+		std::cout << "char: " << _char << std::endl;
+	else if (str == "-inff" or str == "+inff" or str == "nanf")
+		std::cout << "char: " << "impossible" << std::endl;
+	else
+		std::cout << "char: " << "Non displayable" << std::endl;
+	
+	if (str == "-inff" or str == "+inff" or str == "nanf")
+		std::cout << "int: " << "impossible" << std::endl;
+	else
+		std::cout << "int: " << _int << std::endl;
+	
+	int i = 2;
+	while (str[str.size() - i ] != '.')
+	{
+		if (str[str.size() - i ] != '.' && str[str.size() - i ] != '0')
+		{
+			std::cout << "test :" << i << std::endl;
+			std::cout << "float: " << _float << "f" << std::endl;
+			std::cout << "double: " << _double << std::endl;
+			return ;
+		}
+		i++;
+	}
+	std::cout << "float: " << _float << ".0f" << std::endl;
+	std::cout << "double: " << _double << ".0" << std::endl;
 }
 
-void	ScalarConverter::displayDouble(double _double)
+void	ScalarConverter::displayDouble(double _double, std::string str)
 {
-	(void)_double;
 
+	char	_char = static_cast<char>(_double);
+	float	_float = static_cast<float>(_double);
+	int		_int = static_cast<int>(_double);
+	
+	if (std::isgraph(_char))
+		std::cout << "char: " << _char << std::endl;
+	else if (str == "-inf" or str == "+inf" or str == "nan")
+		std::cout << "char: " << "impossible" << std::endl;
+	else
+		std::cout << "char: " << "Non displayable" << std::endl;
+	
+	
+	if (str == "-inf" or str == "+inf" or str == "nan")
+		std::cout << "int: " << "impossible" << std::endl;
+	else
+		std::cout << "int: " << _int << std::endl;
+
+	int i = 1;
+	while (str[str.size() - i ] != '.')
+	{
+		if (str[str.size() - i ] != '.' && str[str.size() - i ] != '0')
+		{
+			std::cout << "float: " << _float << "f" << std::endl;
+			std::cout << "double: " << _double << std::endl;
+			return ;
+		}
+		i++;
+	}
+	std::cout << "float: " << _float << ".0f" << std::endl;
+	std::cout << "double: " << _double << ".0" << std::endl;
 }
 
 bool ScalarConverter::isInt(std::string str)
@@ -144,7 +209,6 @@ bool ScalarConverter::isFloat(std::string str)
 	
 	if (str == "-inff" or str == "+inff" or str == "nanf")
 		return (true);
-
 	if (str[0] == '-' || str[0] == '+')
 		i++;
 	while (std::isdigit(str[i]))
@@ -157,6 +221,8 @@ bool ScalarConverter::isFloat(std::string str)
 		i++;
 	if (str[i] == 'f')
 		i++;
+	else
+		return (false);
 	if (str.size() == i)
 		return (true);
 	return (false);

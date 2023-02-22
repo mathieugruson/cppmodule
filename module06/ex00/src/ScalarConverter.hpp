@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 18:59:39 by mgruson           #+#    #+#             */
-/*   Updated: 2023/02/22 14:32:47 by mgruson          ###   ########.fr       */
+/*   Updated: 2023/02/22 17:31:09 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include <limits>
 #include <cstdlib>
 #include <cctype>
+#include <limits.h>
 
 class ScalarConverter
 {
@@ -25,9 +26,9 @@ class ScalarConverter
 	ScalarConverter();
 	ScalarConverter(ScalarConverter const &obj);
 	ScalarConverter &operator=(ScalarConverter const &obj);
+	~ScalarConverter();
 	/* data */
 	public:
-	~ScalarConverter();
 	static void convert(const std::string& str);
 	static bool isChar(std::string str);
 	static bool isInt(std::string str);
@@ -35,9 +36,8 @@ class ScalarConverter
 	static bool isDouble(std::string str);
 	static void displayChar(char _char);
 	static void displayInt(int _int);
-	static void displayFloat(float _float);
-	static void displayDouble(double _double);
-
+	static void displayFloat(float _float, std::string str);
+	static void displayDouble(double _double, std::string str);
 };
 
 #endif

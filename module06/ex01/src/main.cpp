@@ -5,26 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/21 19:06:47 by mgruson           #+#    #+#             */
-/*   Updated: 2023/02/22 17:30:25 by mgruson          ###   ########.fr       */
+/*   Created: 2023/02/22 16:48:30 by mgruson           #+#    #+#             */
+/*   Updated: 2023/02/22 17:07:51 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#include "Serialize.hpp"
 
-int main(int argc, char **argv)
+int main(void)
 {
-	if (argc != 2)
-	{
-		std::cout << "Wrong number of args" << std::endl;
-		return 1;
-	}
-	if (atol(argv[1]) > INT_MAX || atol(argv[1]) > INT_MIN)
-	{
-		std::cout << "Can't be > or < at INT_MAX and INT_MIN" << std::endl;
-		return 1;
-	}
-	ScalarConverter::convert(argv[1]);
-	
-	return 0;
+	Data *Bob = new Data;
+	Bob->str = "Bob";
+	std::cout << Bob->getStr() << std::endl;
+	uintptr_t ser = Serialize::serialize(Bob);
+	Data *Patrick = Serialize::deserialize(ser);
+	std::cout << Patrick->getStr() << std::endl;
+	delete Bob;
 }

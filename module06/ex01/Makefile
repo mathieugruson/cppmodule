@@ -6,7 +6,7 @@
 #    By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/01 12:07:22 by chillion          #+#    #+#              #
-#    Updated: 2023/02/22 15:18:11 by mgruson          ###   ########.fr        #
+#    Updated: 2023/02/22 17:02:55 by mgruson          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,9 +20,9 @@ OBJ_DIR := obj/
 RM := rm
 VAL := valgrind --leak-check=full --track-origins=yes
 
-SRCS =	main.cpp ScalarConverter.cpp
+SRCS =	main.cpp Serialize.cpp
 
-SOFT_NAME := convert
+SOFT_NAME := serialize
 
 OBJS = $(SRCS:%.cpp=%.o)
 SRC = $(addprefix $(SRC_DIR),$(SRCS))
