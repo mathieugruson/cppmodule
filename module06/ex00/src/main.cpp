@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 19:06:47 by mgruson           #+#    #+#             */
-/*   Updated: 2023/02/22 17:30:25 by mgruson          ###   ########.fr       */
+/*   Updated: 2023/02/22 19:18:48 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,10 @@ int main(int argc, char **argv)
 	}
 	if (atol(argv[1]) > INT_MAX || atol(argv[1]) > INT_MIN)
 	{
-		std::cout << "Can't be > or < at INT_MAX and INT_MIN" << std::endl;
+		std::cout << "char: " << "impossible" << std::endl;
+		std::cout << "int: " << "impossible" << std::endl;
+		std::cout << "float: " << "impossible" << std::endl;
+		std::cout << "double: " << "impossible" << std::endl;
 		return 1;
 	}
 	ScalarConverter::convert(argv[1]);
