@@ -5,29 +5,24 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/21 19:06:47 by mgruson           #+#    #+#             */
-/*   Updated: 2023/02/24 11:47:20 by mgruson          ###   ########.fr       */
+/*   Created: 2023/02/24 15:28:17 by mgruson           #+#    #+#             */
+/*   Updated: 2023/02/24 15:49:50 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#include "iter.hpp"
 
-int main(int argc, char **argv)
+int main()
 {
-	if (argc != 2)
-	{
-		std::cout << "Wrong number of args" << std::endl;
-		return 1;
-	}
-	if (atol(argv[1]) > INT_MAX || atol(argv[1]) < INT_MIN)
-	{
-		std::cout << "char: " << "impossible" << std::endl;
-		std::cout << "int: " << "impossible" << std::endl;
-		std::cout << "float: " << "impossible" << std::endl;
-		std::cout << "double: " << "impossible" << std::endl;
-		return 1;
-	}
-	ScalarConverter::convert(argv[1]);
+	int i[10] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+	char c[5] = {'a', 'b', 'c', 'd', 'e'};
+	std::string str[4] = {"mathieu", "cyril", "bob", "patrick"};
 	
-	return 0;
+	iter(i, 10, print<int>);
+	std::cout << std::endl;
+	iter(c, 5, print<char>);
+	std::cout << std::endl;
+	iter(str, 4, print<std::string>);
+
+	return (0);
 }

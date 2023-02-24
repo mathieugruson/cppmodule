@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 17:57:28 by mgruson           #+#    #+#             */
-/*   Updated: 2023/02/22 18:58:04 by mgruson          ###   ########.fr       */
+/*   Updated: 2023/02/24 11:44:23 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 #include "A.hpp"
 #include "B.hpp"
 #include "C.hpp"
+#include <typeinfo>
 
 Base *generate(void)
 {
 	srand ( time(NULL) );
 	int		i = (rand() % 3 + 1);
-	std::cout << i << std::endl;
 	switch (i)
 	{
 		case 1 :
@@ -53,22 +53,22 @@ void identify(Base& p)
 	{
 		A &a = dynamic_cast<A&>(p);
 		std::cout << "Reference to Base is A\n";
-		// static_cast<void>(a);
+		static_cast<void>(a);
 	}
-	catch (std::exception&) {}
+	catch (std::bad_cast &e) {}
 	try 
 	{
 		B &b = dynamic_cast<B&>(p);
 		std::cout << "Reference to Base is B\n";
-		// static_cast<void>(b);
+		static_cast<void>(b);
 	}
-	catch (std::exception&) {}
+	catch (std::bad_cast &e) {}
 	try {
 		C &c = dynamic_cast<C&>(p);
 		std::cout << "Reference to Base is C\n";
-		// static_cast<void>(c);
+		static_cast<void>(c);
 	}
-	catch (std::exception&) {}
+	catch (std::bad_cast &e) {}
 }
 
 

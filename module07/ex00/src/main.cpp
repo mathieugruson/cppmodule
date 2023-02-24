@@ -5,29 +5,27 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/21 19:06:47 by mgruson           #+#    #+#             */
-/*   Updated: 2023/02/24 11:47:20 by mgruson          ###   ########.fr       */
+/*   Created: 2023/02/24 14:52:43 by mgruson           #+#    #+#             */
+/*   Updated: 2023/02/24 14:53:49 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#include "whatever.hpp"
 
-int main(int argc, char **argv)
-{
-	if (argc != 2)
-	{
-		std::cout << "Wrong number of args" << std::endl;
-		return 1;
-	}
-	if (atol(argv[1]) > INT_MAX || atol(argv[1]) < INT_MIN)
-	{
-		std::cout << "char: " << "impossible" << std::endl;
-		std::cout << "int: " << "impossible" << std::endl;
-		std::cout << "float: " << "impossible" << std::endl;
-		std::cout << "double: " << "impossible" << std::endl;
-		return 1;
-	}
-	ScalarConverter::convert(argv[1]);
+int main( void ) {
+	int a = 2;
+	int b = 3;
+
+	::swap( a, b );
+	std::cout << "a = " << a << ", b = " << b << std::endl;
+	std::cout << "min( a, b ) = " << ::min( a, b ) << std::endl;
+	std::cout << "max( a, b ) = " << ::max( a, b ) << std::endl;
+	std::string c = "chaine1";
+	std::string d = "chaine2";
 	
+	::swap(c, d);
+	std::cout << "c = " << c << ", d = " << d << std::endl;
+	std::cout << "min( c, d ) = " << ::min( c, d ) << std::endl;
+	std::cout << "max( c, d ) = " << ::max( c, d ) << std::endl;
 	return 0;
 }

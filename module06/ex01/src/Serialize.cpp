@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 16:45:57 by mgruson           #+#    #+#             */
-/*   Updated: 2023/02/22 17:02:38 by mgruson          ###   ########.fr       */
+/*   Updated: 2023/02/24 11:48:01 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ Serialize::~Serialize()
 }
 Serialize &Serialize::operator=(Serialize const &obj)
 {
-	(void)&obj;
+	static_cast<void>(obj);
 	std::cout << "Serialize Copy assignment operator called" << std::endl;
 	return *this;
 }

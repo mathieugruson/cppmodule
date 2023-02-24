@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 18:59:36 by mgruson           #+#    #+#             */
-/*   Updated: 2023/02/22 17:26:54 by mgruson          ###   ########.fr       */
+/*   Updated: 2023/02/24 11:48:09 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ ScalarConverter::~ScalarConverter()
 
 ScalarConverter &ScalarConverter::operator=(ScalarConverter const &obj)
 {
-	(void)obj;
+	static_cast<void>(obj);
 	std::cout << "ScalarConverter Copy assignment operator called" << std::endl;
 	return *this;
 }
