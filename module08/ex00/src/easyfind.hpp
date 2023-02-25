@@ -1,36 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Array.hpp                                          :+:      :+:    :+:   */
+/*   easyfind.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/25 13:58:59 by mgruson           #+#    #+#             */
-/*   Updated: 2023/02/25 15:34:20 by mgruson          ###   ########.fr       */
+/*   Created: 2023/02/25 16:19:22 by mgruson           #+#    #+#             */
+/*   Updated: 2023/02/25 18:16:19 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ARRAY_HPP
-#define ARRAY_HPP
+#ifndef EASYFIND_HPP
+# define EASYFIND_HPP
 
 # include <iostream>
-#include <exception>
+# include <algorithm>
+# include <stdexcept>
+# include <list>
+# include <vector>
+# include <iterator>
 
-template <typename T>
-class Array {
- private:
-	T*				_array;
-	unsigned int	_len;
- public:
-	Array(void);
-	Array(unsigned int n);
-	Array(const Array& obj);
-	Array& operator=(const Array& obj);
-	~Array(void);
-	unsigned int size(void) const;
-	T& operator[] (unsigned int i) const;
-};
-
-# include "Array.tpp"
+template < typename T >
+typename T::iterator	easyfind(T& container, int value)
+{
+	return (std::find(container.begin(), container.end(), value));
+}
 
 #endif

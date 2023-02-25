@@ -1,6 +1,5 @@
 {
 	"files.associations": {
-		"iostream": "cpp",
 		"*.tcc": "cpp",
 		"cctype": "cpp",
 		"clocale": "cpp",
@@ -15,6 +14,7 @@
 		"exception": "cpp",
 		"initializer_list": "cpp",
 		"iosfwd": "cpp",
+		"iostream": "cpp",
 		"istream": "cpp",
 		"limits": "cpp",
 		"new": "cpp",
@@ -27,17 +27,7 @@
 		"system_error": "cpp",
 		"type_traits": "cpp",
 		"typeinfo": "cpp",
-		"cstring": "cpp",
-		"fstream": "cpp",
-		"array": "cpp",
-		"deque": "cpp",
-		"list": "cpp",
-		"unordered_map": "cpp",
-		"vector": "cpp",
-		"functional": "cpp",
-		"tuple": "cpp",
-		"utility": "cpp",
-		"map": "cpp",
-		"unordered_set": "cpp"
+		"*.tpp": "cpp",
+		"any": "cpp"
 	}
 }

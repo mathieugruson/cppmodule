@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 15:27:53 by mgruson           #+#    #+#             */
-/*   Updated: 2023/02/24 15:48:18 by mgruson          ###   ########.fr       */
+/*   Updated: 2023/02/25 15:36:09 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void iter (T *array, int length, void (*foo)(T&))
 template<typename T>
 void print(T &value)
 {
-	std::cout << value << std::endl ;
+	std::cout << value << std::endl;
 }
 
 #endif
