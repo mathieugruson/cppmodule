@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 15:48:09 by youjeon           #+#    #+#             */
-/*   Updated: 2023/02/27 16:22:21 by mgruson          ###   ########.fr       */
+/*   Updated: 2023/02/27 16:24:31 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,6 @@ int Span::longestSpan() const
 	}
 	return (*std::max_element(_v.begin(), _v.end()) - *std::min_element(_v.begin(), _v.end()) );
 }
-
 
 std::size_t Span::getSize() const
 {
