@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 15:48:15 by youjeon           #+#    #+#             */
-/*   Updated: 2023/02/27 13:18:25 by mgruson          ###   ########.fr       */
+/*   Updated: 2023/02/27 16:22:47 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <iterator>
 # include <climits>
 
-# define DEBUG 1
+# define DEBUG 0
 
 class Span {
  private:
@@ -39,6 +39,7 @@ class Span {
 	int longestSpan() const;
 	std::size_t getSize() const;
 	std::vector<int> getVector() const;
+	std::vector<int>* getVectorPointer() const;
 };
 
 #endif

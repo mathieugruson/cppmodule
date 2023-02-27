@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 15:48:09 by youjeon           #+#    #+#             */
-/*   Updated: 2023/02/27 13:23:45 by mgruson          ###   ########.fr       */
+/*   Updated: 2023/02/27 16:22:21 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ Span::Span(const Span& obj) : _size(obj.getSize()), _v(obj.getVector())
 {
 	if ( DEBUG )
 		std::cout << "Span copy constructor called" << std::endl;
-} // OK
+}
 
 Span& Span::operator=(const Span& obj)
 {
@@ -25,38 +25,46 @@ Span& Span::operator=(const Span& obj)
 	this->_size = obj.getSize();
 	this->_v = obj.getVector();
 	return (*this);
-} // OK
+}
 
 Span::Span(std::size_t i) : _size(i)
 {
 	if ( DEBUG )
 		std::cout << "Span overload constructor called" << std::endl;
 	_v.reserve(i); 
-} //OK
+}
 
 Span::~Span(void)
 {
 	if ( DEBUG )
 		std::cout << "Span destructor called" << std::endl;
-} //OK
+}
 
 
 void Span::addNumber(int value)
 {
-	if (_v.size() <= this->_size) 
+	if (_v.size() == this->_size) 
 	{
 		throw std::length_error("Span object is full");
 	}
-	this->_size++;
+	if ( DEBUG )
+		std::cout << "_v.size(): " << _v.size() << "_size: " << _size << std::endl;
 	_v.push_back(value);
-} // OK
+}
 
 void Span::addRange(std::vector<int>::iterator const &begin, std::vector<int>::iterator const &end)
 {
-	if (_v.size() < this->_size + std::distance(begin, end)) 
+	if ( DEBUG )
+		std::cout << "this->getSize(): " << this->getSize() << " _v.size(): " << _v.size() \
+		<< " std::distance(begin, end): " << static_cast<unsigned long>(std::distance(begin, end)) \
+		<< std::endl;
+	if (this->getSize() < _v.size() + static_cast<unsigned long>(std::distance(begin, end)))
 	{
 		throw std::length_error("Span object would be full");
 	}
+	if ( DEBUG )
+		std::cout << "distance _v " << static_cast<unsigned long>(std::distance(this->_v.begin(), this->_v.end())) \
+		<< std::endl;
 	_v.insert(_v.end(), begin, end);
 }
 
@@ -64,7 +72,7 @@ int Span::shortestSpan() const
 {
 	if (_v.size() < 2)
 	{
-		throw std::logic_error("vector need to contain more than one element");
+		throw std::logic_error("Vector need to contain more than one element");
 	}
 	int ret = INT_MAX;
 	int prev;
@@ -87,7 +95,7 @@ int Span::shortestSpan() const
 		}
 	}
 	return (ret);
-} //OK
+}
 
 int Span::longestSpan() const
 {
@@ -96,15 +104,15 @@ int Span::longestSpan() const
 		throw std::logic_error("vector need to contain more than one element");
 	}
 	return (*std::max_element(_v.begin(), _v.end()) - *std::min_element(_v.begin(), _v.end()) );
-} //OK
+}
 
 
 std::size_t Span::getSize() const
 {
 	return (this->_size);
-} //OK
+}
 
 std::vector<int> Span::getVector() const
 {
 	return (this->_v);
-} //OK
+}
