@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 17:10:17 by mgruson           #+#    #+#             */
-/*   Updated: 2023/02/25 18:16:15 by mgruson          ###   ########.fr       */
+/*   Updated: 2023/02/25 18:32:57 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,4 @@ int main( void )
 		std::cout << "OK" << std::endl;
 	else
 		std::cout << "Error : Value not found" << std::endl;
-	
 }

@@ -6,7 +6,7 @@
 #    By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/01 12:07:22 by chillion          #+#    #+#              #
-#    Updated: 2023/02/25 14:32:24 by mgruson          ###   ########.fr        #
+#    Updated: 2023/02/26 11:00:49 by mgruson          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,9 +20,9 @@ OBJ_DIR := obj/
 RM := rm
 VAL := valgrind --leak-check=full --track-origins=yes
 
-SRCS =	main.cpp
+SRCS =	main.cpp Span.cpp
 
-SOFT_NAME := Array
+SOFT_NAME := Span
 
 OBJS = $(SRCS:%.cpp=%.o)
 SRC = $(addprefix $(SRC_DIR),$(SRCS))
