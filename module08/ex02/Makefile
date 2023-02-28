@@ -6,7 +6,7 @@
 #    By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/01 12:07:22 by chillion          #+#    #+#              #
-#    Updated: 2023/02/25 14:32:24 by mgruson          ###   ########.fr        #
+#    Updated: 2023/02/28 13:40:51 by mgruson          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ VAL := valgrind --leak-check=full --track-origins=yes
 
 SRCS =	main.cpp
 
-SOFT_NAME := Array
+SOFT_NAME := MutantStack
 
 OBJS = $(SRCS:%.cpp=%.o)
 SRC = $(addprefix $(SRC_DIR),$(SRCS))
