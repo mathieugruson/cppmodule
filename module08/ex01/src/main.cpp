@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 15:47:57 by youjeon           #+#    #+#             */
-/*   Updated: 2023/02/27 16:22:59 by mgruson          ###   ########.fr       */
+/*   Updated: 2023/02/28 14:40:40 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,23 @@ int main()
 	{
 		std::cerr << e.what() << '\n';
 	}
-	
+
+	std::cout << "\nERROR TEST\n" << std::endl;
+
+	try
+	{
+		Span sp = Span(10);
+		srand(time(NULL));
+		for (int i = 0; i < 1; i++)
+		{
+			sp.addNumber(rand() % INT_MAX);
+		}
+		std::cout << sp.shortestSpan() << std::endl;
+		std::cout << sp.longestSpan() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 	return 0;
 }

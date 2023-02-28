@@ -6,7 +6,7 @@
 /*   By: mgruson <mgruson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 13:19:59 by mgruson           #+#    #+#             */
-/*   Updated: 2023/02/28 14:23:09 by mgruson          ###   ########.fr       */
+/*   Updated: 2023/02/28 14:38:56 by mgruson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 int main()
 {
-	std::cout << "MutantStack test\n" << std::endl;
+	std::cout << "MutantStack test : iterator\n" << std::endl;
 	try
 	{
 		MutantStack<int> mstack;
@@ -47,7 +47,7 @@ int main()
 		std::cout << e.what() << std::endl;
 	}
 	
-	std::cout << "\nList test\n" << std::endl;
+	std::cout << "\nList test : iterator\n" << std::endl;
 	
 	try
 	{
@@ -79,63 +79,67 @@ int main()
 		std::cout << e.what() << std::endl;
 	}
 
-	std::cout << "MutantStack test : reverse_iterator\n" << std::endl;
+	std::cout << "\nMutantStack test : reverse_iterator\n" << std::endl;
 
-{
-  MutantStack<int> myvector;
-  for (int i=0; i<10; i++) myvector.push(i);
+	try
+	{
+		MutantStack<int> mystack;
+		for (int i=0; i<10; i++) mystack.push(i);
+		
+		MutantStack<int>::reverse_iterator it = mystack.rbegin();
+		MutantStack<int>::reverse_iterator ite = mystack.rend();
+	
+		while (it != ite)
+		{
+			std::cout << *it << " ";
+			++it;
+		}
+		std::cout << std::endl;
+	}
+	catch (const std::exception& e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 
-  typedef MutantStack<int>::iterator iter_type;
-                                                         // ? 0 1 2 3 4 5 6 7 8 9 ?
-  iter_type from (myvector.begin());                     //   ^
-                                                         //         ------>
-  iter_type until (myvector.end());                      //                       ^
-                                                         //
-  std::reverse_iterator<iter_type> rev_until (from);     // ^
-                                                         //         <------
-  std::reverse_iterator<iter_type> rev_from (until);     //                     ^
+	std::cout << "\nList test : reverse_iterator\n" << std::endl;
+	
+	try
+	{
+		std::list<int> mystack;
+		for (int i=0; i<10; i++) mystack.push_back(i);
+		
+		std::list<int>::reverse_iterator it = mystack.rbegin();
+		std::list<int>::reverse_iterator ite = mystack.rend();
+	
+		while (it != ite)
+		{
+			std::cout << *it << " ";
+			++it;
+		}
+		std::cout << std::endl;
+	}
+	catch (const std::exception& e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 
-  std::cout << "myvector:";
-  while (rev_from != rev_until)
-    std::cout << ' ' << *rev_from++;
-  std::cout << '\n';
+std::cout << "\n Copy / = test\n" << std::endl;
 
-}
+	try
+	{
+		MutantStack<int> mystack;
+		mystack.push(5);
+		mystack.push(17);
+		MutantStack<int> yourstac(mystack);
+		MutantStack<int> stack3 = mystack;
+		std::cout << mystack.size() << std::endl;
+		std::cout << stack3.size() << std::endl;
+	}
+	catch (const std::exception& e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 
-	std::cout << "\nlist test : reverse_iterator\n" << std::endl;
-
-{
-  std::list<int> myvector;
-  for (int i=0; i<10; i++) myvector.push_back(i);
-
-  typedef std::list<int>::iterator iter_type;
-                                                         // ? 0 1 2 3 4 5 6 7 8 9 ?
-  iter_type from (myvector.begin());                     //   ^
-                                                         //         ------>
-  iter_type until (myvector.end());                      //                       ^
-                                                         //
-  std::reverse_iterator<iter_type> rev_until (from);     // ^
-                                                         //         <------
-  std::reverse_iterator<iter_type> rev_from (until);     //                     ^
-
-  std::cout << "myvector:";
-  while (rev_from != rev_until)
-    std::cout << ' ' << *rev_from++;
-  std::cout << '\n';
-
-}
-
-std::cout << "\nswap test\n" << std::endl;
-
-{
-	MutantStack<int> mystack;
-	mystack.push(5);
-	mystack.push(17);
-	MutantStack<int> yourstac(mystack);
-	MutantStack<int> stack3 = mystack;
-	std::cout << mystack.size() << std::endl;
-	std::cout << stack3.size() << std::endl;
-}
 
 
 return 0;
